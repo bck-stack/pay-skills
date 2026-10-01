@@ -72,7 +72,30 @@
         },
         "responses": {
           "200": {
-            "description": "JSON result"
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "model": {
+                      "type": "string"
+                    },
+                    "mime": {
+                      "type": "string"
+                    },
+                    "image_base64": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "model": "@cf/black-forest-labs/flux-1-schnell",
+                  "mime": "image/jpeg",
+                  "image_base64": "/9j/4AAQ..."
+                }
+              }
+            }
           },
           "402": {
             "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
@@ -160,7 +183,58 @@
         },
         "responses": {
           "200": {
-            "description": "JSON result"
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "model": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    },
+                    "language": {
+                      "type": "string"
+                    },
+                    "duration": {
+                      "type": "number"
+                    },
+                    "segments": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "start": {
+                            "type": "integer"
+                          },
+                          "end": {
+                            "type": "number"
+                          },
+                          "text": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "model": "@cf/openai/whisper-large-v3-turbo",
+                  "text": "Hello and welcome...",
+                  "language": "en",
+                  "duration": 42.1,
+                  "segments": [
+                    {
+                      "start": 0,
+                      "end": 3.2,
+                      "text": "Hello and welcome"
+                    }
+                  ]
+                }
+              }
+            }
           },
           "402": {
             "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
@@ -248,7 +322,34 @@
         },
         "responses": {
           "200": {
-            "description": "JSON result"
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "model": {
+                      "type": "string"
+                    },
+                    "voice": {
+                      "type": "string"
+                    },
+                    "mime": {
+                      "type": "string"
+                    },
+                    "audio_base64": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "model": "@cf/deepgram/aura-2-en",
+                  "voice": "luna",
+                  "mime": "audio/mpeg",
+                  "audio_base64": "SUQzBAAAAAAA..."
+                }
+              }
+            }
           },
           "402": {
             "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
@@ -336,7 +437,41 @@
         },
         "responses": {
           "200": {
-            "description": "JSON result"
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "model": {
+                      "type": "string"
+                    },
+                    "dimensions": {
+                      "type": "integer"
+                    },
+                    "embeddings": {
+                      "type": "array",
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "model": "@cf/baai/bge-m3",
+                  "dimensions": 1024,
+                  "embeddings": [
+                    [
+                      0.012,
+                      -0.034
+                    ]
+                  ]
+                }
+              }
+            }
           },
           "402": {
             "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
@@ -421,7 +556,41 @@
         },
         "responses": {
           "200": {
-            "description": "JSON result"
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "model": {
+                      "type": "string"
+                    },
+                    "response": {
+                      "type": "string"
+                    },
+                    "usage": {
+                      "type": "object",
+                      "properties": {
+                        "prompt_tokens": {
+                          "type": "integer"
+                        },
+                        "completion_tokens": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+                  "response": "x402 lets agents pay per request...",
+                  "usage": {
+                    "prompt_tokens": 20,
+                    "completion_tokens": 40
+                  }
+                }
+              }
+            }
           },
           "402": {
             "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
@@ -512,7 +681,96 @@
         },
         "responses": {
           "200": {
-            "description": "JSON result"
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "accessibility": {
+                      "type": "object",
+                      "properties": {
+                        "score": {
+                          "type": "integer"
+                        },
+                        "issues": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "severity": {
+                                "type": "string"
+                              },
+                              "rule": {
+                                "type": "string"
+                              },
+                              "wcag": {
+                                "type": "string"
+                              },
+                              "count": {
+                                "type": "integer"
+                              },
+                              "fix": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "seo": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "security": {
+                      "type": "object",
+                      "properties": {
+                        "hsts": {
+                          "type": "boolean"
+                        }
+                      }
+                    },
+                    "tech": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "url": "https://example.com/",
+                  "accessibility": {
+                    "score": 85,
+                    "issues": [
+                      {
+                        "severity": "critical",
+                        "rule": "image-alt",
+                        "wcag": "1.1.1",
+                        "count": 3,
+                        "fix": "Add alt text"
+                      }
+                    ]
+                  },
+                  "seo": {
+                    "title": "Example"
+                  },
+                  "security": {
+                    "hsts": true
+                  },
+                  "tech": [
+                    "Shopify"
+                  ]
+                }
+              }
+            }
           },
           "402": {
             "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
@@ -585,7 +843,66 @@
         },
         "responses": {
           "200": {
-            "description": "JSON result"
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "domain": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "emails": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "email": {
+                            "type": "string"
+                          },
+                          "sameDomain": {
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    },
+                    "socials": {
+                      "type": "object",
+                      "properties": {
+                        "linkedin": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "tech": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "domain": "plausible.io",
+                  "name": "Plausible Analytics",
+                  "emails": [
+                    {
+                      "email": "hello@plausible.io",
+                      "sameDomain": true
+                    }
+                  ],
+                  "socials": {
+                    "linkedin": "https://linkedin.com/company/plausible-analytics/"
+                  },
+                  "tech": [
+                    "Cloudflare"
+                  ]
+                }
+              }
+            }
           },
           "402": {
             "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
@@ -658,7 +975,66 @@
         },
         "responses": {
           "200": {
-            "description": "JSON result"
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "thread": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "total": {
+                      "type": "integer"
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "company": {
+                            "type": "string"
+                          },
+                          "headline": {
+                            "type": "string"
+                          },
+                          "emails": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "url": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "thread": {
+                    "title": "Ask HN: Who is hiring? (September 2026)"
+                  },
+                  "total": 38,
+                  "results": [
+                    {
+                      "company": "Acme",
+                      "headline": "Acme | Backend Engineer | REMOTE",
+                      "emails": [
+                        "jobs@acme.com"
+                      ],
+                      "url": "https://news.ycombinator.com/item?id=1"
+                    }
+                  ]
+                }
+              }
+            }
           },
           "402": {
             "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
@@ -751,7 +1127,111 @@
         },
         "responses": {
           "200": {
-            "description": "JSON result"
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "integer"
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "question": {
+                            "type": "string"
+                          },
+                          "phase": {
+                            "type": "string"
+                          },
+                          "priceUsdc": {
+                            "type": "object",
+                            "properties": {
+                              "yes": {
+                                "type": "number"
+                              },
+                              "no": {
+                                "type": "number"
+                              }
+                            }
+                          },
+                          "impliedProbability": {
+                            "type": "object",
+                            "properties": {
+                              "yes": {
+                                "type": "number"
+                              },
+                              "no": {
+                                "type": "number"
+                              }
+                            }
+                          },
+                          "volumeUsdc": {
+                            "type": "integer"
+                          },
+                          "closesAt": {
+                            "type": "string"
+                          },
+                          "resolutionSource": {
+                            "type": "string"
+                          },
+                          "buyable": {
+                            "type": "boolean"
+                          }
+                        }
+                      }
+                    },
+                    "disclaimer": {
+                      "type": "string"
+                    },
+                    "poweredBy": {
+                      "type": "object",
+                      "properties": {
+                        "text": {
+                          "type": "string"
+                        },
+                        "url": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "total": 3,
+                  "results": [
+                    {
+                      "id": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+                      "question": "Will BTC close above $150k on 2026-12-31?",
+                      "phase": "primary",
+                      "priceUsdc": {
+                        "yes": 0.31,
+                        "no": 0.69
+                      },
+                      "impliedProbability": {
+                        "yes": 0.31,
+                        "no": 0.69
+                      },
+                      "volumeUsdc": 1200,
+                      "closesAt": "2026-12-31T23:59:59.000Z",
+                      "resolutionSource": "https://www.coingecko.com",
+                      "buyable": true
+                    }
+                  ],
+                  "disclaimer": "Information only, not financial advice.",
+                  "poweredBy": {
+                    "text": "Powered by Panta",
+                    "url": "https://panta.market"
+                  }
+                }
+              }
+            }
           },
           "402": {
             "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
@@ -853,7 +1333,90 @@
         },
         "responses": {
           "200": {
-            "description": "JSON result"
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "market": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "question": {
+                          "type": "string"
+                        },
+                        "impliedProbability": {
+                          "type": "object",
+                          "properties": {
+                            "yes": {
+                              "type": "number"
+                            },
+                            "no": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "recentActivity": {
+                      "type": "object",
+                      "properties": {
+                        "sampled": {
+                          "type": "integer"
+                        },
+                        "yesBuys": {
+                          "type": "integer"
+                        },
+                        "noBuys": {
+                          "type": "integer"
+                        },
+                        "last24h": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "summary": {
+                      "type": "object",
+                      "properties": {
+                        "text": {
+                          "type": "string"
+                        },
+                        "source": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "disclaimer": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "market": {
+                    "id": "7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU",
+                    "question": "Will BTC close above $150k on 2026-12-31?",
+                    "impliedProbability": {
+                      "yes": 0.31,
+                      "no": 0.69
+                    }
+                  },
+                  "recentActivity": {
+                    "sampled": 50,
+                    "yesBuys": 31,
+                    "noBuys": 19,
+                    "last24h": 12
+                  },
+                  "summary": {
+                    "text": "This market asks whether...",
+                    "source": "llm"
+                  },
+                  "disclaimer": "Information only, not financial advice."
+                }
+              }
+            }
           },
           "402": {
             "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
@@ -926,7 +1489,49 @@
         },
         "responses": {
           "200": {
-            "description": "JSON result"
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "expectedFill": {
+                      "type": "object",
+                      "properties": {
+                        "shares": {
+                          "type": "number"
+                        },
+                        "avgPrice": {
+                          "type": "number"
+                        },
+                        "feeUsdc": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "spotPrice": {
+                      "type": "number"
+                    },
+                    "priceImpact": {
+                      "type": "number"
+                    },
+                    "disclaimer": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "expectedFill": {
+                    "shares": 15.8,
+                    "avgPrice": 0.3165,
+                    "feeUsdc": 0.1
+                  },
+                  "spotPrice": 0.31,
+                  "priceImpact": 0.021,
+                  "disclaimer": "Information only, not financial advice."
+                }
+              }
+            }
           },
           "402": {
             "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
@@ -1027,7 +1632,97 @@
         },
         "responses": {
           "200": {
-            "description": "JSON result"
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "order": {
+                      "type": "object",
+                      "properties": {
+                        "orderId": {
+                          "type": "string"
+                        },
+                        "quoteId": {
+                          "type": "string"
+                        },
+                        "expectedShares": {
+                          "type": "string"
+                        },
+                        "feeUsdc": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "transaction": {
+                      "type": "object",
+                      "properties": {
+                        "signed": {
+                          "type": "boolean"
+                        },
+                        "format": {
+                          "type": "string"
+                        },
+                        "encoding": {
+                          "type": "string"
+                        },
+                        "data": {
+                          "type": "string"
+                        },
+                        "feePayer": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "instructions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "programId": {
+                            "type": "string"
+                          },
+                          "data": {
+                            "type": "string"
+                          },
+                          "accounts": {
+                            "type": "array",
+                            "items": {}
+                          }
+                        }
+                      }
+                    },
+                    "disclaimer": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "order": {
+                    "orderId": "ord_...",
+                    "quoteId": "qt_...",
+                    "expectedShares": "15.80",
+                    "feeUsdc": "0.10"
+                  },
+                  "transaction": {
+                    "signed": false,
+                    "format": "solana-v0",
+                    "encoding": "base64",
+                    "data": "AQAAAA...",
+                    "feePayer": "9WzDXwBbmkg8ZTbNMqUxvQRAyrZzDsGYdLVL9zYtAWWM"
+                  },
+                  "instructions": [
+                    {
+                      "programId": "...",
+                      "data": "<base64>",
+                      "accounts": []
+                    }
+                  ],
+                  "disclaimer": "Information only, not financial advice."
+                }
+              }
+            }
           },
           "402": {
             "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
