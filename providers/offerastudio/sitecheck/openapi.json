@@ -447,7 +447,7 @@
                       "type": "string"
                     },
                     "dimensions": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "embeddings": {
                       "type": "array",
@@ -572,10 +572,10 @@
                       "type": "object",
                       "properties": {
                         "prompt_tokens": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "completion_tokens": {
-                          "type": "number"
+                          "type": "integer"
                         }
                       }
                     }
@@ -694,7 +694,7 @@
                       "type": "object",
                       "properties": {
                         "score": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "issues": {
                           "type": "array",
@@ -711,7 +711,7 @@
                                 "type": "string"
                               },
                               "count": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "fix": {
                                 "type": "string"
@@ -990,7 +990,7 @@
                       }
                     },
                     "total": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "results": {
                       "type": "array",
@@ -1134,7 +1134,7 @@
                   "type": "object",
                   "properties": {
                     "total": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "results": {
                       "type": "array",
@@ -1365,16 +1365,16 @@
                       "type": "object",
                       "properties": {
                         "sampled": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "yesBuys": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "noBuys": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "last24h": {
-                          "type": "number"
+                          "type": "integer"
                         }
                       }
                     },
