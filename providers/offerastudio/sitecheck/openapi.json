@@ -207,7 +207,7 @@
                         "type": "object",
                         "properties": {
                           "start": {
-                            "type": "integer"
+                            "type": "number"
                           },
                           "end": {
                             "type": "number"
@@ -447,7 +447,7 @@
                       "type": "string"
                     },
                     "dimensions": {
-                      "type": "integer"
+                      "type": "number"
                     },
                     "embeddings": {
                       "type": "array",
@@ -572,10 +572,10 @@
                       "type": "object",
                       "properties": {
                         "prompt_tokens": {
-                          "type": "integer"
+                          "type": "number"
                         },
                         "completion_tokens": {
-                          "type": "integer"
+                          "type": "number"
                         }
                       }
                     }
@@ -694,7 +694,7 @@
                       "type": "object",
                       "properties": {
                         "score": {
-                          "type": "integer"
+                          "type": "number"
                         },
                         "issues": {
                           "type": "array",
@@ -711,7 +711,7 @@
                                 "type": "string"
                               },
                               "count": {
-                                "type": "integer"
+                                "type": "number"
                               },
                               "fix": {
                                 "type": "string"
@@ -990,7 +990,7 @@
                       }
                     },
                     "total": {
-                      "type": "integer"
+                      "type": "number"
                     },
                     "results": {
                       "type": "array",
@@ -1134,7 +1134,7 @@
                   "type": "object",
                   "properties": {
                     "total": {
-                      "type": "integer"
+                      "type": "number"
                     },
                     "results": {
                       "type": "array",
@@ -1173,7 +1173,7 @@
                             }
                           },
                           "volumeUsdc": {
-                            "type": "integer"
+                            "type": "number"
                           },
                           "closesAt": {
                             "type": "string"
@@ -1365,16 +1365,16 @@
                       "type": "object",
                       "properties": {
                         "sampled": {
-                          "type": "integer"
+                          "type": "number"
                         },
                         "yesBuys": {
-                          "type": "integer"
+                          "type": "number"
                         },
                         "noBuys": {
-                          "type": "integer"
+                          "type": "number"
                         },
                         "last24h": {
-                          "type": "integer"
+                          "type": "number"
                         }
                       }
                     },
