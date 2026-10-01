@@ -6,7 +6,7 @@ use_case: "Use to audit a website (accessibility issues with fixes, SEO basics, 
 category: data
 service_url: https://api.sitecheck-api.workers.dev
 openapi:
-  url: https://api.sitecheck-api.workers.dev/openapi.json
+  path: openapi.json
 ---
 
 SiteCheck is a live pay-per-call API for AI agents. Every call is paid on its own with x402 in USDC on Solana, Base or Arc: no account, no API key. A payment settles only when the call succeeds, so a failed call is never charged.
