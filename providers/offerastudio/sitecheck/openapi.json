@@ -80,13 +80,22 @@
                   "type": "object",
                   "properties": {
                     "model": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "mime": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "image_base64": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   }
                 },
@@ -192,16 +201,28 @@
                   "type": "object",
                   "properties": {
                     "model": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "text": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "language": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "duration": {
-                      "type": "number"
+                      "type": [
+                        "number",
+                        "null"
+                      ]
                     },
                     "segments": {
                       "type": "array",
@@ -209,13 +230,22 @@
                         "type": "object",
                         "properties": {
                           "start": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "null"
+                            ]
                           },
                           "end": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "null"
+                            ]
                           },
                           "text": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           }
                         }
                       }
@@ -332,16 +362,28 @@
                   "type": "object",
                   "properties": {
                     "model": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "voice": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "mime": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "audio_base64": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   }
                 },
@@ -448,17 +490,26 @@
                   "type": "object",
                   "properties": {
                     "model": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "dimensions": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "embeddings": {
                       "type": "array",
                       "items": {
                         "type": "array",
                         "items": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         }
                       }
                     }
@@ -568,19 +619,31 @@
                   "type": "object",
                   "properties": {
                     "model": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "response": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "usage": {
                       "type": "object",
                       "properties": {
                         "prompt_tokens": {
-                          "type": "integer"
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
                         },
                         "completion_tokens": {
-                          "type": "integer"
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
                         }
                       }
                     }
@@ -694,13 +757,19 @@
                   "type": "object",
                   "properties": {
                     "url": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "accessibility": {
                       "type": "object",
                       "properties": {
                         "score": {
-                          "type": "integer"
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
                         },
                         "issues": {
                           "type": "array",
@@ -708,19 +777,34 @@
                             "type": "object",
                             "properties": {
                               "severity": {
-                                "type": "string"
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
                               },
                               "rule": {
-                                "type": "string"
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
                               },
                               "wcag": {
-                                "type": "string"
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
                               },
                               "count": {
-                                "type": "integer"
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ]
                               },
                               "fix": {
-                                "type": "string"
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
                               }
                             }
                           }
@@ -731,7 +815,10 @@
                       "type": "object",
                       "properties": {
                         "title": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       }
                     },
@@ -739,14 +826,20 @@
                       "type": "object",
                       "properties": {
                         "hsts": {
-                          "type": "boolean"
+                          "type": [
+                            "boolean",
+                            "null"
+                          ]
                         }
                       }
                     },
                     "tech": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     }
                   }
@@ -857,10 +950,16 @@
                   "type": "object",
                   "properties": {
                     "domain": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "name": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "emails": {
                       "type": "array",
@@ -868,10 +967,16 @@
                         "type": "object",
                         "properties": {
                           "email": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "sameDomain": {
-                            "type": "boolean"
+                            "type": [
+                              "boolean",
+                              "null"
+                            ]
                           }
                         }
                       }
@@ -880,14 +985,20 @@
                       "type": "object",
                       "properties": {
                         "linkedin": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       }
                     },
                     "tech": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     }
                   }
@@ -993,12 +1104,18 @@
                       "type": "object",
                       "properties": {
                         "title": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       }
                     },
                     "total": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "results": {
                       "type": "array",
@@ -1006,19 +1123,31 @@
                         "type": "object",
                         "properties": {
                           "company": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "headline": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "emails": {
                             "type": "array",
                             "items": {
-                              "type": "string"
+                              "type": [
+                                "string",
+                                "null"
+                              ]
                             }
                           },
                           "url": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           }
                         }
                       }
@@ -1144,45 +1273,81 @@
                   "type": "object",
                   "properties": {
                     "input": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "countryCode": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "vatNumber": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "formatted": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "valid": {
-                      "type": "boolean"
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "viesStatus": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "name": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "address": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "requestDate": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "checks": {
                       "type": "object",
                       "properties": {
                         "format": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "checksum": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       }
                     },
                     "source": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   }
                 },
@@ -1290,76 +1455,232 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "input": {
-                      "type": "string"
-                    },
-                    "valid": {
-                      "type": "boolean"
-                    },
-                    "iban": {
-                      "type": "string"
-                    },
-                    "ibanPrint": {
-                      "type": "string"
-                    },
-                    "countryCode": {
-                      "type": "string"
-                    },
-                    "country": {
-                      "type": "string"
-                    },
-                    "expectedLength": {
-                      "type": "integer"
-                    },
-                    "nationalCheck": {
+                  "oneOf": [
+                    {
                       "type": "object",
                       "properties": {
-                        "status": {
-                          "type": "string"
+                        "input": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
-                        "note": {
-                          "type": "string"
+                        "valid": {
+                          "type": [
+                            "boolean",
+                            "null"
+                          ]
+                        },
+                        "iban": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "ibanPrint": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "countryCode": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "country": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "expectedLength": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "nationalCheck": {
+                          "type": "object",
+                          "properties": {
+                            "status": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "note": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "ibanElectronic": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "bban": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "bankCode": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "branchCode": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "account": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "checks": {
+                          "type": "object",
+                          "properties": {
+                            "structure": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "length": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "mod97": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "national": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "bankLookup": {
+                          "type": [
+                            "boolean",
+                            "null"
+                          ]
                         }
                       }
                     },
-                    "ibanElectronic": {
-                      "type": "string"
-                    },
-                    "bban": {
-                      "type": "string"
-                    },
-                    "bankCode": {
-                      "type": "string"
-                    },
-                    "branchCode": {
-                      "type": "null"
-                    },
-                    "account": {
-                      "type": "string"
-                    },
-                    "checks": {
+                    {
                       "type": "object",
                       "properties": {
-                        "structure": {
-                          "type": "string"
+                        "count": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
                         },
-                        "length": {
-                          "type": "string"
+                        "valid": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
                         },
-                        "mod97": {
-                          "type": "string"
+                        "invalid": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
                         },
-                        "national": {
-                          "type": "string"
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "input": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "valid": {
+                                "type": [
+                                  "boolean",
+                                  "null"
+                                ]
+                              },
+                              "iban": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "ibanPrint": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "countryCode": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "errors": {
+                                "type": "array",
+                                "items": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                }
+                              },
+                              "country": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "bankCode": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "branchCode": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "account": {
+                                "type": [
+                                  "string",
+                                  "null",
+                                  "number"
+                                ]
+                              }
+                            }
+                          }
                         }
                       }
-                    },
-                    "bankLookup": {
-                      "type": "boolean"
                     }
-                  }
+                  ]
                 },
                 "example": {
                   "input": "DE89 3704 0044 0532 0130 00",
@@ -1385,6 +1706,70 @@
                     "national": "not-available"
                   },
                   "bankLookup": false
+                },
+                "examples": {
+                  "single": {
+                    "value": {
+                      "input": "DE89 3704 0044 0532 0130 00",
+                      "valid": true,
+                      "iban": "DE89370400440532013000",
+                      "ibanPrint": "DE89 3704 0044 0532 0130 00",
+                      "countryCode": "DE",
+                      "country": "Germany",
+                      "expectedLength": 22,
+                      "nationalCheck": {
+                        "status": "not-available",
+                        "note": "no public national check-digit algorithm is applied for this country"
+                      },
+                      "ibanElectronic": "DE89370400440532013000",
+                      "bban": "370400440532013000",
+                      "bankCode": "37040044",
+                      "branchCode": null,
+                      "account": "0532013000",
+                      "checks": {
+                        "structure": "ok",
+                        "length": "ok",
+                        "mod97": "ok",
+                        "national": "not-available"
+                      },
+                      "bankLookup": false
+                    }
+                  },
+                  "batch": {
+                    "value": {
+                      "count": 2,
+                      "valid": 1,
+                      "invalid": 1,
+                      "results": [
+                        {
+                          "input": "DE89370400440532013000",
+                          "valid": true,
+                          "iban": "DE89370400440532013000",
+                          "ibanPrint": "DE89 3704 0044 0532 0130 00",
+                          "countryCode": "DE",
+                          "errors": [],
+                          "country": "Germany",
+                          "bankCode": "37040044",
+                          "branchCode": null,
+                          "account": "0532013000"
+                        },
+                        {
+                          "input": "DE00123",
+                          "valid": false,
+                          "iban": null,
+                          "ibanPrint": null,
+                          "countryCode": "DE",
+                          "errors": [
+                            "length: expected 22 characters, got 7"
+                          ],
+                          "country": "Germany",
+                          "bankCode": null,
+                          "branchCode": null,
+                          "account": null
+                        }
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1478,40 +1863,73 @@
                   "type": "object",
                   "properties": {
                     "matchedBy": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "query": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "matchScore": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "lei": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "legalName": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "status": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "jurisdiction": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "registration": {
                       "type": "object",
                       "properties": {
                         "status": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "initialRegistrationDate": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "nextRenewalDate": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "managingLou": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       }
                     },
@@ -1519,10 +1937,16 @@
                       "type": "object",
                       "properties": {
                         "relationship": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "reason": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       }
                     },
@@ -1530,10 +1954,16 @@
                       "type": "object",
                       "properties": {
                         "relationship": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "reason": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       }
                     },
@@ -1541,10 +1971,16 @@
                       "type": "object",
                       "properties": {
                         "directCount": {
-                          "type": "integer"
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
                         },
                         "ultimateCount": {
-                          "type": "integer"
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
                         },
                         "direct": {
                           "type": "array",
@@ -1552,22 +1988,37 @@
                             "type": "object",
                             "properties": {
                               "lei": {
-                                "type": "string"
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
                               },
                               "name": {
-                                "type": "string"
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
                               },
                               "jurisdiction": {
-                                "type": "string"
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
                               },
                               "status": {
-                                "type": "string"
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
                               }
                             }
                           }
                         },
                         "directShown": {
-                          "type": "integer"
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
                         }
                       }
                     },
@@ -1577,28 +2028,49 @@
                         "type": "object",
                         "properties": {
                           "lei": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "name": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "jurisdiction": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "status": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "matchScore": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "null"
+                            ]
                           }
                         }
                       }
                     },
                     "kycSummary": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "source": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   }
                 },
@@ -1735,27 +2207,45 @@
                       "type": "object",
                       "properties": {
                         "q": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "source": {
                           "type": "array",
                           "items": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           }
                         },
                         "since": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "classification": {
-                          "type": "null"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       }
                     },
                     "total": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "returned": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "results": {
                       "type": "array",
@@ -1763,61 +2253,109 @@
                         "type": "object",
                         "properties": {
                           "source": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "category": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "id": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "date": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "initiated": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "product": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "firm": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "reason": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "classification": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "severity": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "status": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "distribution": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "states": {
                             "type": "array",
                             "items": {}
                           },
                           "nationwide": {
-                            "type": "boolean"
+                            "type": [
+                              "boolean",
+                              "null"
+                            ]
                           },
                           "link": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           }
                         }
                       }
                     },
                     "severityNote": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "sources": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     }
                   }
@@ -1984,30 +2522,51 @@
                       "type": "object",
                       "properties": {
                         "company": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "state": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "since": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "minPenalty": {
-                          "type": "null"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         },
                         "sources": {
                           "type": "array",
                           "items": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           }
                         }
                       }
                     },
                     "total": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "returned": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "results": {
                       "type": "array",
@@ -2015,40 +2574,76 @@
                         "type": "object",
                         "properties": {
                           "source": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "id": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "company": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "facility": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "state": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "city": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "date": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "penalty": {
-                            "type": "integer"
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
                           },
                           "currency": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "type": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "status": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "link": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           }
                         }
                       }
@@ -2056,17 +2651,26 @@
                     "notes": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "sources": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "caveat": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   }
                 },
@@ -2241,27 +2845,48 @@
                       "type": "object",
                       "properties": {
                         "since": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "until": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "q": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "postcode": {
-                          "type": "null"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "type": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       }
                     },
                     "returned": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "total": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "results": {
                       "type": "array",
@@ -2269,55 +2894,97 @@
                         "type": "object",
                         "properties": {
                           "company": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "companyNumber": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "noticeType": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "noticeCode": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "date": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "natureOfBusiness": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "typeOfLiquidation": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "postcode": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "noticeId": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "link": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           }
                         }
                       }
                     },
                     "dataTimestamp": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "coveredDays": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "missingDays": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "source": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   }
                 },
@@ -2477,58 +3144,112 @@
                   "type": "object",
                   "properties": {
                     "url": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "finalUrl": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "status": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "contentType": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "title": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "description": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "author": {
-                      "type": "null"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "publishedAt": {
-                      "type": "null"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "lang": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "canonical": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "siteName": {
-                      "type": "null"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "format": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "content": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "chars": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "wordCount": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "truncated": {
-                      "type": "boolean"
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "fetchedAt": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "note": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   }
                 },
@@ -2670,51 +3391,211 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "email": {
-                      "type": "string"
-                    },
-                    "normalized": {
-                      "type": "string"
-                    },
-                    "verdict": {
-                      "type": "string"
-                    },
-                    "reasons": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "email": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "normalized": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "verdict": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "reasons": {
+                          "type": "array",
+                          "items": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        },
+                        "domain": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "mx": {
+                          "type": [
+                            "boolean",
+                            "null"
+                          ]
+                        },
+                        "mxHosts": {
+                          "type": "array",
+                          "items": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        },
+                        "disposable": {
+                          "type": [
+                            "boolean",
+                            "null"
+                          ]
+                        },
+                        "role": {
+                          "type": [
+                            "boolean",
+                            "null"
+                          ]
+                        },
+                        "freeProvider": {
+                          "type": [
+                            "boolean",
+                            "null"
+                          ]
+                        },
+                        "suggestion": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "note": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
                       }
                     },
-                    "domain": {
-                      "type": "string"
-                    },
-                    "mx": {
-                      "type": "boolean"
-                    },
-                    "mxHosts": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
+                    {
+                      "type": "object",
+                      "properties": {
+                        "total": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "counts": {
+                          "type": "object",
+                          "properties": {
+                            "unknown": {
+                              "type": [
+                                "integer",
+                                "null"
+                              ]
+                            },
+                            "risky": {
+                              "type": [
+                                "integer",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "email": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "normalized": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "verdict": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "reasons": {
+                                "type": "array",
+                                "items": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                }
+                              },
+                              "domain": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "mx": {
+                                "type": [
+                                  "boolean",
+                                  "null"
+                                ]
+                              },
+                              "mxHosts": {
+                                "type": "array",
+                                "items": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                }
+                              },
+                              "disposable": {
+                                "type": [
+                                  "boolean",
+                                  "null"
+                                ]
+                              },
+                              "role": {
+                                "type": [
+                                  "boolean",
+                                  "null"
+                                ]
+                              },
+                              "freeProvider": {
+                                "type": [
+                                  "boolean",
+                                  "null"
+                                ]
+                              },
+                              "suggestion": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            }
+                          }
+                        },
+                        "note": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "disposableListSize": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        }
                       }
-                    },
-                    "disposable": {
-                      "type": "boolean"
-                    },
-                    "role": {
-                      "type": "boolean"
-                    },
-                    "freeProvider": {
-                      "type": "boolean"
-                    },
-                    "suggestion": {
-                      "type": "string"
-                    },
-                    "note": {
-                      "type": "string"
                     }
-                  }
+                  ]
                 },
                 "example": {
                   "email": "john.smith@gmial.com",
@@ -2733,6 +3614,73 @@
                   "freeProvider": false,
                   "suggestion": "john.smith@gmail.com",
                   "note": "No SMTP connection is made: 'unknown' means nothing is wrong with the address and its domain, not that the mailbox exists."
+                },
+                "examples": {
+                  "single": {
+                    "value": {
+                      "email": "john.smith@gmial.com",
+                      "normalized": "john.smith@gmial.com",
+                      "verdict": "risky",
+                      "reasons": [
+                        "typo-suspected"
+                      ],
+                      "domain": "gmial.com",
+                      "mx": true,
+                      "mxHosts": [
+                        "mx.gmial.com"
+                      ],
+                      "disposable": false,
+                      "role": false,
+                      "freeProvider": false,
+                      "suggestion": "john.smith@gmail.com",
+                      "note": "No SMTP connection is made: 'unknown' means nothing is wrong with the address and its domain, not that the mailbox exists."
+                    }
+                  },
+                  "batch": {
+                    "value": {
+                      "total": 2,
+                      "counts": {
+                        "unknown": 1,
+                        "risky": 1
+                      },
+                      "results": [
+                        {
+                          "email": "maria@gmail.com",
+                          "normalized": "maria@gmail.com",
+                          "verdict": "unknown",
+                          "reasons": [],
+                          "domain": "gmail.com",
+                          "mx": true,
+                          "mxHosts": [
+                            "gmail-smtp-in.l.google.com"
+                          ],
+                          "disposable": false,
+                          "role": false,
+                          "freeProvider": true,
+                          "suggestion": null
+                        },
+                        {
+                          "email": "x@mailinator.com",
+                          "normalized": "x@mailinator.com",
+                          "verdict": "risky",
+                          "reasons": [
+                            "disposable-domain"
+                          ],
+                          "domain": "mailinator.com",
+                          "mx": true,
+                          "mxHosts": [
+                            "mail.mailinator.com"
+                          ],
+                          "disposable": true,
+                          "role": false,
+                          "freeProvider": false,
+                          "suggestion": null
+                        }
+                      ],
+                      "note": "No SMTP connection is made.",
+                      "disposableListSize": 9213
+                    }
+                  }
                 }
               }
             }
@@ -2826,96 +3774,168 @@
                   "type": "object",
                   "properties": {
                     "domain": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "registeredDomain": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "registered": {
-                      "type": "boolean"
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "availability": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "rdapAvailable": {
-                      "type": "boolean"
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "registrar": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "registrarIanaId": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "createdAt": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "updatedAt": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "expiresAt": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "daysUntilExpiry": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "ageDays": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "statusCodes": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "dnssec": {
-                      "type": "boolean"
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "registrantCountry": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "registrantOrganisation": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "nameServers": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "dns": {
                       "type": "object",
                       "properties": {
                         "resolves": {
-                          "type": "boolean"
+                          "type": [
+                            "boolean",
+                            "null"
+                          ]
                         },
                         "ipv4": {
                           "type": "array",
                           "items": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           }
                         },
                         "ipv6": {
                           "type": "array",
                           "items": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           }
                         },
                         "mx": {
                           "type": "array",
                           "items": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           }
                         },
                         "nullMx": {
-                          "type": "boolean"
+                          "type": [
+                            "boolean",
+                            "null"
+                          ]
                         }
                       }
                     },
                     "note": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "source": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   }
                 },
@@ -3043,40 +4063,73 @@
                   "type": "object",
                   "properties": {
                     "address": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "name": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "symbol": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "priceUsd": {
-                      "type": "number"
+                      "type": [
+                        "number",
+                        "null"
+                      ]
                     },
                     "marketCapUsd": {
-                      "type": "number"
+                      "type": [
+                        "number",
+                        "null"
+                      ]
                     },
                     "fdvUsd": {
-                      "type": "number"
+                      "type": [
+                        "number",
+                        "null"
+                      ]
                     },
                     "liquidityUsd": {
-                      "type": "number"
+                      "type": [
+                        "number",
+                        "null"
+                      ]
                     },
                     "holders": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "volume24hUsd": {
-                      "type": "number"
+                      "type": [
+                        "number",
+                        "null"
+                      ]
                     },
                     "priceChangePct": {
                       "type": "object",
                       "properties": {
                         "h1": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         },
                         "h24": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         }
                       }
                     },
@@ -3084,66 +4137,123 @@
                       "type": "object",
                       "properties": {
                         "buys": {
-                          "type": "integer"
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
                         },
                         "sells": {
-                          "type": "integer"
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
                         },
                         "traders": {
-                          "type": "integer"
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
                         }
                       }
                     },
                     "organicScore": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "organicScoreLabel": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "verified": {
-                      "type": "boolean"
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "tags": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "tokenProgram": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "mintAuthorityEnabled": {
-                      "type": "boolean"
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "freezeAuthorityEnabled": {
-                      "type": "boolean"
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "topHoldersPercent": {
-                      "type": "number"
+                      "type": [
+                        "number",
+                        "null"
+                      ]
                     },
                     "devBalancePercent": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "firstPoolCreatedAt": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "ageHours": {
-                      "type": "number"
+                      "type": [
+                        "number",
+                        "null"
+                      ]
                     },
                     "url": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "decimals": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "supply": {
-                      "type": "number"
+                      "type": [
+                        "number",
+                        "null"
+                      ]
                     },
                     "mintAuthority": {
-                      "type": "null"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "freezeAuthority": {
-                      "type": "null"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "extensions": {
                       "type": "array",
@@ -3155,28 +4265,52 @@
                         "type": "object",
                         "properties": {
                           "pairAddress": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "name": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "dex": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "liquidityUsd": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "null"
+                            ]
                           },
                           "volume24hUsd": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "null"
+                            ]
                           },
                           "priceUsd": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "null"
+                            ]
                           },
                           "createdAt": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "url": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           }
                         }
                       }
@@ -3189,18 +4323,30 @@
                       "type": "object",
                       "properties": {
                         "onchain": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "market": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "pools": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       }
                     },
                     "disclaimer": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   }
                 },
@@ -3347,27 +4493,45 @@
                   "type": "object",
                   "properties": {
                     "mode": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "interval": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "filters": {
                       "type": "object",
                       "properties": {
                         "minLiquidityUsd": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         },
                         "minVolume24hUsd": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         }
                       }
                     },
                     "looked": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "returned": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "results": {
                       "type": "array",
@@ -3375,37 +4539,67 @@
                         "type": "object",
                         "properties": {
                           "address": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "name": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "symbol": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "priceUsd": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "null"
+                            ]
                           },
                           "marketCapUsd": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "null"
+                            ]
                           },
                           "liquidityUsd": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "null"
+                            ]
                           },
                           "holders": {
-                            "type": "integer"
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
                           },
                           "volume24hUsd": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "null"
+                            ]
                           },
                           "priceChangePct": {
                             "type": "object",
                             "properties": {
                               "h1": {
-                                "type": "number"
+                                "type": [
+                                  "number",
+                                  "null"
+                                ]
                               },
                               "h24": {
-                                "type": "number"
+                                "type": [
+                                  "number",
+                                  "null"
+                                ]
                               }
                             }
                           },
@@ -3413,51 +4607,90 @@
                             "type": "object",
                             "properties": {
                               "buys": {
-                                "type": "integer"
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ]
                               },
                               "sells": {
-                                "type": "integer"
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ]
                               },
                               "traders": {
-                                "type": "integer"
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ]
                               }
                             }
                           },
                           "organicScore": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "null"
+                            ]
                           },
                           "organicScoreLabel": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "verified": {
-                            "type": "boolean"
+                            "type": [
+                              "boolean",
+                              "null"
+                            ]
                           },
                           "mintAuthorityEnabled": {
-                            "type": "boolean"
+                            "type": [
+                              "boolean",
+                              "null"
+                            ]
                           },
                           "freezeAuthorityEnabled": {
-                            "type": "boolean"
+                            "type": [
+                              "boolean",
+                              "null"
+                            ]
                           },
                           "topHoldersPercent": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "null"
+                            ]
                           },
                           "ageHours": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "null"
+                            ]
                           },
                           "flags": {
                             "type": "array",
                             "items": {
-                              "type": "string"
+                              "type": [
+                                "string",
+                                "null"
+                              ]
                             }
                           }
                         }
                       }
                     },
                     "disclaimer": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "source": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   }
                 },
@@ -3628,39 +4861,66 @@
                   "type": "object",
                   "properties": {
                     "url": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "finalUrl": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "status": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "domain": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "cms": {
-                      "type": "null"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "ecommerce": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "analytics": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "tagManagers": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "cdn": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "hosting": {
@@ -3668,7 +4928,10 @@
                       "items": {}
                     },
                     "emailProvider": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "technologies": {
                       "type": "array",
@@ -3676,34 +4939,58 @@
                         "type": "object",
                         "properties": {
                           "name": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "category": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "version": {
-                            "type": "null"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "confidence": {
-                            "type": "integer"
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
                           },
                           "evidence": {
                             "type": "array",
                             "items": {
-                              "type": "string"
+                              "type": [
+                                "string",
+                                "null"
+                              ]
                             }
                           }
                         }
                       }
                     },
                     "count": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "blocked": {
-                      "type": "null"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "note": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   }
                 },
@@ -3823,40 +5110,76 @@
                   "type": "object",
                   "properties": {
                     "pages": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "title": {
-                      "type": "null"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "author": {
-                      "type": "null"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "subject": {
-                      "type": "null"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "creator": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "producer": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "createdAt": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "modifiedAt": {
-                      "type": "null"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "chars": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "truncated": {
-                      "type": "boolean"
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "pagesReturned": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "text": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "byPage": {
                       "type": "array",
@@ -3864,16 +5187,25 @@
                         "type": "object",
                         "properties": {
                           "page": {
-                            "type": "integer"
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
                           },
                           "text": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           }
                         }
                       }
                     },
                     "note": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   }
                 },
@@ -3997,25 +5329,43 @@
                   "type": "object",
                   "properties": {
                     "base": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "amount": {
-                      "type": "number"
+                      "type": [
+                        "number",
+                        "null"
+                      ]
                     },
                     "date": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "rates": {
                       "type": "object",
                       "properties": {
                         "EUR": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         },
                         "GBP": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         },
                         "TRY": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         }
                       }
                     },
@@ -4023,18 +5373,30 @@
                       "type": "object",
                       "properties": {
                         "EUR": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         },
                         "GBP": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         },
                         "TRY": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         }
                       }
                     },
                     "source": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   }
                 },
@@ -4184,28 +5546,49 @@
                   "type": "object",
                   "properties": {
                     "site": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "sitemapsRead": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "sitemaps": {
                       "type": "array",
                       "items": {
-                        "type": "string"
+                        "type": [
+                          "string",
+                          "null"
+                        ]
                       }
                     },
                     "childSitemapsSkipped": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "totalUrls": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "returned": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "truncated": {
-                      "type": "boolean"
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
                     },
                     "urls": {
                       "type": "array",
@@ -4213,10 +5596,16 @@
                         "type": "object",
                         "properties": {
                           "url": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "lastmod": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           }
                         }
                       }
@@ -4355,33 +5744,57 @@
                   "type": "object",
                   "properties": {
                     "address": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "sol": {
                       "type": "object",
                       "properties": {
                         "amount": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         },
                         "priceUsd": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         },
                         "valueUsd": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         }
                       }
                     },
                     "totalValueUsd": {
-                      "type": "number"
+                      "type": [
+                        "number",
+                        "null"
+                      ]
                     },
                     "tokenAccounts": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "tokensShown": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "hiddenDustOrUnpriced": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "tokens": {
                       "type": "array",
@@ -4389,34 +5802,61 @@
                         "type": "object",
                         "properties": {
                           "mint": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "symbol": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "name": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "amount": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "null"
+                            ]
                           },
                           "priceUsd": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "null"
+                            ]
                           },
                           "valueUsd": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "null"
+                            ]
                           },
                           "verified": {
-                            "type": "boolean"
+                            "type": [
+                              "boolean",
+                              "null"
+                            ]
                           },
                           "program": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           }
                         }
                       }
                     },
                     "disclaimer": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   }
                 },
@@ -4537,19 +5977,34 @@
                   "type": "object",
                   "properties": {
                     "model": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "source": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "target": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "translated_text": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "chunks": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     }
                   }
                 },
@@ -4663,7 +6118,10 @@
                   "type": "object",
                   "properties": {
                     "total": {
-                      "type": "integer"
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
                     },
                     "results": {
                       "type": "array",
@@ -4671,22 +6129,37 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "question": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "phase": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "priceUsdc": {
                             "type": "object",
                             "properties": {
                               "yes": {
-                                "type": "number"
+                                "type": [
+                                  "number",
+                                  "null"
+                                ]
                               },
                               "no": {
-                                "type": "number"
+                                "type": [
+                                  "number",
+                                  "null"
+                                ]
                               }
                             }
                           },
@@ -4694,39 +6167,66 @@
                             "type": "object",
                             "properties": {
                               "yes": {
-                                "type": "number"
+                                "type": [
+                                  "number",
+                                  "null"
+                                ]
                               },
                               "no": {
-                                "type": "number"
+                                "type": [
+                                  "number",
+                                  "null"
+                                ]
                               }
                             }
                           },
                           "volumeUsdc": {
-                            "type": "number"
+                            "type": [
+                              "number",
+                              "null"
+                            ]
                           },
                           "closesAt": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "resolutionSource": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "buyable": {
-                            "type": "boolean"
+                            "type": [
+                              "boolean",
+                              "null"
+                            ]
                           }
                         }
                       }
                     },
                     "disclaimer": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     },
                     "poweredBy": {
                       "type": "object",
                       "properties": {
                         "text": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "url": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       }
                     }
@@ -4873,19 +6373,31 @@
                       "type": "object",
                       "properties": {
                         "id": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "question": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "impliedProbability": {
                           "type": "object",
                           "properties": {
                             "yes": {
-                              "type": "number"
+                              "type": [
+                                "number",
+                                "null"
+                              ]
                             },
                             "no": {
-                              "type": "number"
+                              "type": [
+                                "number",
+                                "null"
+                              ]
                             }
                           }
                         }
@@ -4895,16 +6407,28 @@
                       "type": "object",
                       "properties": {
                         "sampled": {
-                          "type": "integer"
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
                         },
                         "yesBuys": {
-                          "type": "integer"
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
                         },
                         "noBuys": {
-                          "type": "integer"
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
                         },
                         "last24h": {
-                          "type": "integer"
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
                         }
                       }
                     },
@@ -4912,15 +6436,24 @@
                       "type": "object",
                       "properties": {
                         "text": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "source": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       }
                     },
                     "disclaimer": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   }
                 },
@@ -5030,24 +6563,42 @@
                       "type": "object",
                       "properties": {
                         "shares": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         },
                         "avgPrice": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         },
                         "feeUsdc": {
-                          "type": "number"
+                          "type": [
+                            "number",
+                            "null"
+                          ]
                         }
                       }
                     },
                     "spotPrice": {
-                      "type": "number"
+                      "type": [
+                        "number",
+                        "null"
+                      ]
                     },
                     "priceImpact": {
-                      "type": "number"
+                      "type": [
+                        "number",
+                        "null"
+                      ]
                     },
                     "disclaimer": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   }
                 },
@@ -5174,16 +6725,28 @@
                       "type": "object",
                       "properties": {
                         "orderId": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "quoteId": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "expectedShares": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "feeUsdc": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       }
                     },
@@ -5191,19 +6754,34 @@
                       "type": "object",
                       "properties": {
                         "signed": {
-                          "type": "boolean"
+                          "type": [
+                            "boolean",
+                            "null"
+                          ]
                         },
                         "format": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "encoding": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "data": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         },
                         "feePayer": {
-                          "type": "string"
+                          "type": [
+                            "string",
+                            "null"
+                          ]
                         }
                       }
                     },
@@ -5213,10 +6791,16 @@
                         "type": "object",
                         "properties": {
                           "programId": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "data": {
-                            "type": "string"
+                            "type": [
+                              "string",
+                              "null"
+                            ]
                           },
                           "accounts": {
                             "type": "array",
@@ -5226,7 +6810,10 @@
                       }
                     },
                     "disclaimer": {
-                      "type": "string"
+                      "type": [
+                        "string",
+                        "null"
+                      ]
                     }
                   }
                 },
