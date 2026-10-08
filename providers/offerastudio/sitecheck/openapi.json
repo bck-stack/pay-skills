@@ -1455,7 +1455,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "oneOf": [
+                  "anyOf": [
                     {
                       "type": "object",
                       "properties": {
@@ -1583,7 +1583,10 @@
                             "null"
                           ]
                         }
-                      }
+                      },
+                      "required": [
+                        "input"
+                      ]
                     },
                     {
                       "type": "object",
@@ -1678,34 +1681,12 @@
                             }
                           }
                         }
-                      }
+                      },
+                      "required": [
+                        "results"
+                      ]
                     }
                   ]
-                },
-                "example": {
-                  "input": "DE89 3704 0044 0532 0130 00",
-                  "valid": true,
-                  "iban": "DE89370400440532013000",
-                  "ibanPrint": "DE89 3704 0044 0532 0130 00",
-                  "countryCode": "DE",
-                  "country": "Germany",
-                  "expectedLength": 22,
-                  "nationalCheck": {
-                    "status": "not-available",
-                    "note": "no public national check-digit algorithm is applied for this country"
-                  },
-                  "ibanElectronic": "DE89370400440532013000",
-                  "bban": "370400440532013000",
-                  "bankCode": "37040044",
-                  "branchCode": null,
-                  "account": "0532013000",
-                  "checks": {
-                    "structure": "ok",
-                    "length": "ok",
-                    "mod97": "ok",
-                    "national": "not-available"
-                  },
-                  "bankLookup": false
                 },
                 "examples": {
                   "single": {
@@ -3391,7 +3372,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "oneOf": [
+                  "anyOf": [
                     {
                       "type": "object",
                       "properties": {
@@ -3473,7 +3454,10 @@
                             "null"
                           ]
                         }
-                      }
+                      },
+                      "required": [
+                        "email"
+                      ]
                     },
                     {
                       "type": "object",
@@ -3593,27 +3577,12 @@
                             "null"
                           ]
                         }
-                      }
+                      },
+                      "required": [
+                        "results"
+                      ]
                     }
                   ]
-                },
-                "example": {
-                  "email": "john.smith@gmial.com",
-                  "normalized": "john.smith@gmial.com",
-                  "verdict": "risky",
-                  "reasons": [
-                    "typo-suspected"
-                  ],
-                  "domain": "gmial.com",
-                  "mx": true,
-                  "mxHosts": [
-                    "mx.gmial.com"
-                  ],
-                  "disposable": false,
-                  "role": false,
-                  "freeProvider": false,
-                  "suggestion": "john.smith@gmail.com",
-                  "note": "No SMTP connection is made: 'unknown' means nothing is wrong with the address and its domain, not that the mailbox exists."
                 },
                 "examples": {
                   "single": {
