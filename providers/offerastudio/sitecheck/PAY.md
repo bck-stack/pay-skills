@@ -1,8 +1,8 @@
 ---
 name: sitecheck
 title: "SiteCheck"
-description: "29 pay-per-call tools for agents in USDC: web page to Markdown, PDF to text, tech stack, e-mail pre-check, domain RDAP, FX, translation, Solana token and wallet data, KYB (VAT, IBAN, LEI, recalls, OSHA/EPA, UK insolvency), website audits, AI models."
-use_case: "Use to read a web page or PDF as text, check a company (tech stack, contacts, VAT, LEI, enforcement, insolvency), pre-check e-mails or domains, convert currencies, translate, or check Solana tokens and wallets."
+description: "53 pay-per-call tools for agents in USDC: web page to Markdown, PDF, SEO and link checks, DNS/mail, OCR, SEC filings and financials, macro rates, Solana and EVM token, wallet, gas and swap quotes, KYB checks, website audits, AI models."
+use_case: "Use to read a web page or PDF, check a site (SEO, links, headers, DNS) or a company (SEC, VAT, LEI, UK registry), get macro rates, OCR an image, or check Solana and EVM tokens, wallets, gas and swap quotes."
 category: data
 service_url: https://api.sitecheck-api.workers.dev
 openapi:
@@ -16,6 +16,8 @@ Web and documents
 - `POST /api/pdf` ($0.003): PDF to text by URL or base64, page by page, with metadata (text PDFs only).
 - `GET /api/sitemap?url=` ($0.002): every URL in a site's XML sitemaps with lastmod.
 - `GET /api/tech?url=` ($0.003): website technology detection with version, confidence and evidence.
+- `GET /api/meta`, `/api/links` (broken links), `/api/redirects`, `/api/headers` (security grade), `/api/dns` (SPF/DMARC/DKIM grade): $0.001-0.003 each.
+- `POST /api/ocr` ($0.003): text from an image. `GET /api/exif` ($0.002), `/api/qr` ($0.001), `/api/lang` ($0.001), `/api/validate` (ISBN/EAN/VIN/IMEI/ISIN, $0.001).
 - `GET /api/audit?url=` ($0.02): WCAG 2.2 accessibility issues with fixes, SEO basics, security headers. `GET /api/contacts?url=` ($0.01): company e-mails, phones, socials.
 
 Data checks
@@ -24,7 +26,12 @@ Data checks
 - `GET /api/fx` ($0.001): ECB exchange rates, conversion and time series. `POST /api/translate` ($0.002).
 - KYB: `/api/vat` (EU VIES, $0.002), `/api/iban` ($0.001), `/api/lei` (GLEIF, $0.005), `/api/recalls` (FDA/CPSC, $0.003), `/api/violations` (OSHA/EPA, $0.005), `/api/uk-insolvency` (The Gazette, $0.003).
 
-Solana (information only, not financial advice)
+Company and public data
+- `GET /api/sec/filings` ($0.002) and `/api/sec/financials` ($0.003): SEC EDGAR filings and XBRL key figures.
+- `/api/uk-company` (Companies House, $0.003), `/api/congress` (US bills, $0.002), `/api/patents` (USPTO, $0.003), `/api/macro` (Fed, ECB and Eurostat rates and inflation, $0.001), `/api/github/repo` ($0.002), `/api/hn` ($0.001), `/api/wiki` ($0.001).
+
+Crypto (information only, not financial advice)
+- `GET /api/gas` ($0.001): fees on Base, Ethereum, Arbitrum, Optimism, Polygon and Solana. `/api/solana/quote` ($0.002): Jupiter swap quote. `/api/evm/token` ($0.003): ERC-20 proxy, owner and risky-function flags. `/api/evm/wallet` ($0.003), `/api/ens` ($0.001).
 - `GET /api/solana/token?address=` ($0.002): price, liquidity, holders, organic score, top-holder share, on-chain mint and freeze authority, red flags.
 - `GET /api/solana/trending` ($0.003): trending, new, top-traded or top-organic tokens with the same flags.
 - `GET /api/solana/wallet?address=` ($0.003): SOL and token balances with USD values.
