@@ -3,7 +3,7 @@
   "info": {
     "title": "SiteCheck API",
     "version": "1.2.0",
-    "description": "Pay-per-call tools for AI agents: image generation, speech-to-text, text-to-speech, embeddings, LLM chat, website audits and contact enrichment, web page to Markdown reader, PDF to text, sitemap URLs, tech stack detection, translation, exchange rates, e-mail pre-check, domain RDAP/DNS lookup, Solana token checks, trending tokens and wallet holdings, plus business and compliance data (EU VAT/VIES, IBAN, LEI/GLEIF, US recalls, OSHA/EPA violations, UK insolvency notices). Also: SEO metadata, link checking, redirect chains, security headers, mail DNS (SPF, DMARC, DKIM), QR codes, language detection, photo EXIF, identifier validation, image OCR, SEC filings, SEC financials, Congress bills, US patents, macro rates, UK company data, GitHub repo stats, Hacker News, Wikipedia, gas prices, Solana swap quotes, ERC-20 token checks, ENS names, EVM wallet balances. Plus prediction-market search, briefs, quotes and unsigned buy transactions, powered by Panta. Payment: x402, USDC on Base, Solana or Arc. No signup, no API key.",
+    "description": "Pay-per-call tools for AI agents: image generation, speech-to-text, text-to-speech, embeddings, LLM chat, website audits and contact enrichment, web page to Markdown reader, PDF to text, sitemap URLs, tech stack detection, translation, exchange rates, e-mail pre-check, domain RDAP/DNS lookup, Solana token checks, trending tokens and wallet holdings, plus business and compliance data (EU VAT/VIES, IBAN, LEI/GLEIF, US recalls, OSHA/EPA violations, UK insolvency notices). Also: SEO metadata, link checking, redirect chains, security headers, mail DNS (SPF, DMARC, DKIM), QR codes, language detection, photo EXIF, identifier validation, image OCR, SEC filings, SEC financials, Congress bills, macro rates, UK company data, GitHub repo stats, Hacker News, Wikipedia, gas prices, Solana swap quotes, ERC-20 token checks, ENS names, EVM wallet balances. Plus prediction-market search, briefs, quotes and unsigned buy transactions, powered by Panta. Payment: x402, USDC on Base, Solana or Arc. No signup, no API key.",
     "contact": {
       "url": "https://github.com/bck-stack/sitecheck-x402",
       "email": "hello@offerastudio.com"
@@ -4178,7 +4178,7 @@
                     },
                     "devBalancePercent": {
                       "type": [
-                        "integer",
+                        "number",
                         "null"
                       ]
                     },
@@ -4927,7 +4927,7 @@
                           },
                           "confidence": {
                             "type": [
-                              "integer",
+                              "number",
                               "null"
                             ]
                           },
@@ -6184,7 +6184,7 @@
                         },
                         "image": {
                           "type": [
-                            "number",
+                            "string",
                             "null"
                           ]
                         },
@@ -6231,7 +6231,7 @@
                         },
                         "image": {
                           "type": [
-                            "number",
+                            "string",
                             "null"
                           ]
                         },
@@ -7565,6 +7565,12 @@
           "200": {
             "description": "Successful result (shape shown by the schema and example)",
             "content": {
+              "image/svg+xml": {
+                "schema": {
+                  "type": "string",
+                  "description": "The QR code as an SVG document (format=svg, the default)"
+                }
+              },
               "application/json": {
                 "schema": {
                   "type": "object",
@@ -7755,7 +7761,7 @@
                         },
                         "confidence": {
                           "type": [
-                            "integer",
+                            "number",
                             "null"
                           ]
                         },
@@ -7848,7 +7854,7 @@
                               },
                               "confidence": {
                                 "type": [
-                                  "integer",
+                                  "number",
                                   "null"
                                 ]
                               },
@@ -7860,9 +7866,7 @@
                               },
                               "alternatives": {
                                 "type": "array",
-                                "items": {
-                                  "type": []
-                                }
+                                "items": {}
                               },
                               "length": {
                                 "type": [
@@ -8113,13 +8117,13 @@
                         },
                         "aperture": {
                           "type": [
-                            "integer",
+                            "number",
                             "null"
                           ]
                         },
                         "focalLengthMm": {
                           "type": [
-                            "integer",
+                            "number",
                             "null"
                           ]
                         }
@@ -8160,7 +8164,7 @@
                         },
                         "altitudeM": {
                           "type": [
-                            "integer",
+                            "number",
                             "null"
                           ]
                         },
@@ -9122,7 +9126,7 @@
                                 "properties": {
                                   "value": {
                                     "type": [
-                                      "integer",
+                                      "number",
                                       "null"
                                     ]
                                   },
@@ -9151,7 +9155,7 @@
                                 "properties": {
                                   "value": {
                                     "type": [
-                                      "integer",
+                                      "number",
                                       "null"
                                     ]
                                   },
@@ -9174,7 +9178,7 @@
                                 "properties": {
                                   "value": {
                                     "type": [
-                                      "integer",
+                                      "number",
                                       "null"
                                     ]
                                   },
@@ -9197,7 +9201,7 @@
                                 "properties": {
                                   "value": {
                                     "type": [
-                                      "integer",
+                                      "number",
                                       "null"
                                     ]
                                   },
@@ -9220,7 +9224,7 @@
                                 "properties": {
                                   "value": {
                                     "type": [
-                                      "integer",
+                                      "number",
                                       "null"
                                     ]
                                   },
@@ -9243,7 +9247,7 @@
                                 "properties": {
                                   "value": {
                                     "type": [
-                                      "integer",
+                                      "number",
                                       "null"
                                     ]
                                   },
@@ -9266,7 +9270,7 @@
                                 "properties": {
                                   "value": {
                                     "type": [
-                                      "integer",
+                                      "number",
                                       "null"
                                     ]
                                   },
@@ -9286,9 +9290,35 @@
                               },
                               "operatingCashFlow": {
                                 "type": [
-                                  "string",
+                                  "object",
                                   "null"
-                                ]
+                                ],
+                                "properties": {
+                                  "value": {
+                                    "type": [
+                                      "number",
+                                      "null"
+                                    ]
+                                  },
+                                  "tag": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
+                                  "form": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
+                                  "filed": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  }
+                                }
                               },
                               "dilutedEps": {
                                 "type": "object",
@@ -9318,7 +9348,7 @@
                                 "properties": {
                                   "value": {
                                     "type": [
-                                      "integer",
+                                      "number",
                                       "null"
                                     ]
                                   },
@@ -9774,301 +9804,6 @@
               "type": "string"
             },
             "description": "Max bills for q, 1-25, default 10",
-            "example": "5"
-          }
-        ]
-      }
-    },
-    "/api/patents": {
-      "get": {
-        "summary": "Search US patents by keyword, assignee or inventor",
-        "description": "US patents from the USPTO through PatentsView: search titles and abstracts by keyword (q), by assignee or by inventor, optionally by grant date. Each result gives the number, title, grant date, abstract (first 400 characters), assignees, inventors, CPC classes and a Google Patents link. One upstream request per call. Source: USPTO data, public domain.",
-        "tags": [
-          "patents",
-          "uspto",
-          "intellectual property",
-          "innovation",
-          "competitor research",
-          "prior art"
-        ],
-        "x-payment-info": {
-          "price": {
-            "mode": "fixed",
-            "currency": "USD",
-            "amount": "0.003"
-          },
-          "protocols": [
-            {
-              "x402": {
-                "version": 2,
-                "scheme": "exact",
-                "networks": [
-                  {
-                    "network": "eip155:8453",
-                    "name": "Base",
-                    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-                    "symbol": "USDC",
-                    "amount": "3000",
-                    "payTo": "0xb8491F953e6860D3b5840b73c60883Ff099ceAfA"
-                  },
-                  {
-                    "network": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
-                    "name": "Solana",
-                    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
-                    "symbol": "USDC",
-                    "amount": "3000",
-                    "payTo": "J8vnmBx4pS1X7UUBTfz1yWBKiw69Dj2yRGRHDaXBRdhR"
-                  },
-                  {
-                    "network": "eip155:5042",
-                    "name": "Arc",
-                    "asset": "0x3600000000000000000000000000000000000000",
-                    "symbol": "USDC",
-                    "amount": "3000",
-                    "payTo": "0xa4751fCAa83c9669cfe507bb6807507729839be3"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        "responses": {
-          "200": {
-            "description": "Successful result (shape shown by the schema and example)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "query": {
-                      "type": "object",
-                      "properties": {
-                        "q": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "assignee": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "inventor": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "from": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "to": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        }
-                      }
-                    },
-                    "totalHits": {
-                      "type": [
-                        "integer",
-                        "null"
-                      ]
-                    },
-                    "returned": {
-                      "type": [
-                        "integer",
-                        "null"
-                      ]
-                    },
-                    "results": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "number": {
-                            "type": [
-                              "string",
-                              "null"
-                            ]
-                          },
-                          "title": {
-                            "type": [
-                              "string",
-                              "null"
-                            ]
-                          },
-                          "grantDate": {
-                            "type": [
-                              "string",
-                              "null"
-                            ]
-                          },
-                          "abstract": {
-                            "type": [
-                              "string",
-                              "null"
-                            ]
-                          },
-                          "assignees": {
-                            "type": "array",
-                            "items": {
-                              "type": [
-                                "string",
-                                "null"
-                              ]
-                            }
-                          },
-                          "inventors": {
-                            "type": "array",
-                            "items": {
-                              "type": [
-                                "string",
-                                "null"
-                              ]
-                            }
-                          },
-                          "cpc": {
-                            "type": "array",
-                            "items": {
-                              "type": [
-                                "string",
-                                "null"
-                              ]
-                            }
-                          },
-                          "link": {
-                            "type": [
-                              "string",
-                              "null"
-                            ]
-                          }
-                        }
-                      }
-                    },
-                    "note": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    },
-                    "checkedAt": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    },
-                    "source": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    }
-                  }
-                },
-                "example": {
-                  "query": {
-                    "q": "x402 payment protocol",
-                    "assignee": null,
-                    "inventor": null,
-                    "from": "2024-01-01",
-                    "to": null
-                  },
-                  "totalHits": 1,
-                  "returned": 1,
-                  "results": [
-                    {
-                      "number": "11999999",
-                      "title": "Example payment protocol for machine-to-machine requests",
-                      "grantDate": "2025-06-03",
-                      "abstract": "A method for settling a per-request payment between a client and a server...",
-                      "assignees": [
-                        "Example Networks Inc."
-                      ],
-                      "inventors": [
-                        "Jane Example",
-                        "Omar Sample"
-                      ],
-                      "cpc": [
-                        "G06Q20/3821",
-                        "H04L9/3239"
-                      ],
-                      "link": "https://patents.google.com/patent/US11999999"
-                    }
-                  ],
-                  "note": "Matches are text matches in the USPTO record (title, abstract, names). A granted patent is not a statement about its validity or enforceability.",
-                  "checkedAt": "2026-10-13T18:40:00.000Z",
-                  "source": "PatentsView PatentSearch API (https://search.patentsview.org), USPTO data under the public domain"
-                }
-              }
-            }
-          },
-          "402": {
-            "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
-          }
-        },
-        "parameters": [
-          {
-            "name": "q",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Words in the title or abstract",
-            "example": "x402 payment protocol"
-          },
-          {
-            "name": "assignee",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Company or organisation name"
-          },
-          {
-            "name": "inventor",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Inventor name, e.g. Jane Doe"
-          },
-          {
-            "name": "from",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Grant date from, YYYY-MM-DD",
-            "example": "2024-01-01"
-          },
-          {
-            "name": "to",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Grant date to, YYYY-MM-DD"
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            },
-            "description": "Max results, 1-25, default 10",
             "example": "5"
           }
         ]
@@ -11000,7 +10735,7 @@
                           },
                           "percent": {
                             "type": [
-                              "integer",
+                              "number",
                               "null"
                             ]
                           }
@@ -12066,7 +11801,7 @@
                           },
                           "percent": {
                             "type": [
-                              "integer",
+                              "number",
                               "null"
                             ]
                           }
