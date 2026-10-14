@@ -1,7 +1,7 @@
 ---
 name: sitecheck
 title: "SiteCheck"
-description: "86 pay-per-call tools for agents in USDC: EVM and Solana reads, crypto prices and order books, DeFi data, web and PDF reading, SEO and DNS checks, OCR, SEC data, KYB, weather, geocoding, package advisories, text AI."
+description: "132 pay-per-call tools for agents in USDC: Bitcoin, EVM and Solana reads, DeFi and perps data, web and PDF reading, SEO/DNS checks, OCR, SEC and KYB data, geo, dev lookups, text AI."
 use_case: "Use to read a web page or PDF, check a site (SEO, links, headers, DNS) or a company (SEC, VAT, LEI, UK registry), get macro rates, OCR an image, or check Solana and EVM tokens, wallets, gas and swap quotes."
 category: data
 service_url: https://api.sitecheck-api.workers.dev
@@ -35,6 +35,12 @@ More data
 - Markets: `/api/crypto/price`, `/api/crypto/candles`, `/api/crypto/orderbook`, `/api/defi/tvl`, `/api/defi/yields`, `/api/defi/stablecoins`, `/api/sec/insiders`.
 - Reference: `/api/weather`, `/api/geocode`, `/api/ip`, `/api/holidays`, `/api/postcode`, `/api/package`, `/api/vulns`, `/api/github/user`, `/api/arxiv`, `/api/doi`, `/api/feed`.
 - Text AI: `POST /api/extract` (fields from a page or text by your schema), `POST /api/summarize`, `/api/sentiment`, `POST /api/rerank`, `/api/tables`.
+
+Even more
+- Bitcoin: `/api/btc/fees`, `/api/btc/address`, `/api/btc/tx`. Contracts: `/api/evm/decode` (calldata), `/api/evm/contract` (Sourcify). Markets: `/api/perps/markets`, `/api/perps/account` (Hyperliquid), `/api/prediction/polymarket`, `/api/crypto/fear-greed`, `/api/defi/fees`, `/api/defi/dex-volume`.
+- Registries and regulators: `/api/company/registry` (NO, FI, CZ, PL), `/api/securities/id` (OpenFIGI + GLEIF), `/api/sec/search`, `/api/sec/events`, `/api/fda/label`, `/api/fda/adverse-events`, `/api/clinical-trials`, `/api/pubmed`, `/api/grants`, `/api/eu-tenders`, `/api/npi`.
+- Geo: `/api/us-geocode`, `/api/earthquakes`, `/api/weather/alerts`, `/api/sun`, `/api/timezone`, `/api/distance`, `/api/disasters`. Site checks: `/api/llms-txt`, `/api/ai-crawlers`, `/api/trackers`, `/api/certs`, `/api/logo`. Dev: `/api/github/releases`, `/api/github/issues`, `/api/stackoverflow`, `/api/wikidata`.
+- Text AI and utilities: `POST /api/moderate`, `/api/describe-image`, `/api/classify`, `/api/entities`, `/api/redact`, `/api/phone`, `/api/cron`, `POST /api/json-validate`.
 
 Crypto (information only, not financial advice)
 - `GET /api/gas` ($0.001): fees on Base, Ethereum, Arbitrum, Optimism, Polygon and Solana. `/api/solana/quote` ($0.002): Jupiter swap quote. `/api/evm/token` ($0.003): ERC-20 proxy, owner and risky-function flags. `/api/evm/wallet` ($0.003), `/api/ens` ($0.001).
