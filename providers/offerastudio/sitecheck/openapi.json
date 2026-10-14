@@ -14655,16 +14655,27 @@
                       ]
                     },
                     "metadata": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    },
-                    "metadataNote": {
-                      "type": [
-                        "string",
-                        "null"
-                      ]
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "description": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "image": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      }
                     },
                     "checkedAt": {
                       "type": [
@@ -14696,9 +14707,12 @@
                   },
                   "owner": "0x46EFbAedc92067E6d60E84ED6395099723252496",
                   "tokenUri": "ipfs://QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/1",
-                  "metadata": null,
-                  "metadataNote": "metadata answered HTTP 429",
-                  "checkedAt": "2026-10-14T04:49:19.555Z",
+                  "metadata": {
+                    "name": null,
+                    "description": null,
+                    "image": "https://ipfs.filebase.io/ipfs/QmPbxeGcXhYQQNgsC6a36dDyYUcHgMLnGKnF8pVFmGsvqi"
+                  },
+                  "checkedAt": "2026-10-14T05:36:06.915Z",
                   "disclaimer": "Information only, not financial advice.",
                   "source": "https://ethereum-rpc.publicnode.com (eth_call ownerOf, tokenURI, name, symbol); the token URI's metadata"
                 }
@@ -19000,31 +19014,15 @@
                   "properties": {
                     "fields": {
                       "type": "object",
-                      "properties": {
-                        "invoice_number": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "total": {
-                          "type": [
-                            "integer",
-                            "null"
-                          ]
-                        },
-                        "currency": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        },
-                        "due_date": {
-                          "type": [
-                            "string",
-                            "null"
-                          ]
-                        }
+                      "description": "One key per field you asked for",
+                      "additionalProperties": {
+                        "type": [
+                          "string",
+                          "number",
+                          "boolean",
+                          "array",
+                          "null"
+                        ]
                       }
                     },
                     "model": {
