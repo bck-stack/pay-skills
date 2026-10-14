@@ -1,7 +1,7 @@
 ---
 name: sitecheck
 title: "SiteCheck"
-description: "52 pay-per-call tools for agents in USDC: web page to Markdown, PDF, SEO and link checks, DNS/mail, OCR, SEC filings and financials, macro rates, Solana and EVM token, wallet, gas and swap quotes, KYB checks, website audits, AI models."
+description: "86 pay-per-call tools for agents in USDC: EVM and Solana reads, crypto prices and order books, DeFi data, web and PDF reading, SEO and DNS checks, OCR, SEC data, KYB, weather, geocoding, package advisories, text AI."
 use_case: "Use to read a web page or PDF, check a site (SEO, links, headers, DNS) or a company (SEC, VAT, LEI, UK registry), get macro rates, OCR an image, or check Solana and EVM tokens, wallets, gas and swap quotes."
 category: data
 service_url: https://api.sitecheck-api.workers.dev
@@ -29,6 +29,12 @@ Data checks
 Company and public data
 - `GET /api/sec/filings` ($0.002) and `/api/sec/financials` ($0.003): SEC EDGAR filings and XBRL key figures.
 - `/api/uk-company` (Companies House, $0.003), `/api/congress` (US bills, $0.002), `/api/macro` (Fed, ECB and Eurostat rates and inflation, $0.001), `/api/github/repo` ($0.002), `/api/hn` ($0.001), `/api/wiki` ($0.001).
+
+More data
+- Chain reads: `/api/evm/address`, `/api/evm/balance`, `/api/evm/tx`, `/api/evm/block`, `/api/evm/transfers`, `/api/evm/logs`, `/api/evm/call`, `/api/evm/allowance`, `/api/evm/nft`, `/api/solana/tx`, `/api/solana/account` ($0.001-0.003).
+- Markets: `/api/crypto/price`, `/api/crypto/candles`, `/api/crypto/orderbook`, `/api/defi/tvl`, `/api/defi/yields`, `/api/defi/stablecoins`, `/api/sec/insiders`.
+- Reference: `/api/weather`, `/api/geocode`, `/api/ip`, `/api/holidays`, `/api/postcode`, `/api/package`, `/api/vulns`, `/api/github/user`, `/api/arxiv`, `/api/doi`, `/api/feed`.
+- Text AI: `POST /api/extract` (fields from a page or text by your schema), `POST /api/summarize`, `/api/sentiment`, `POST /api/rerank`, `/api/tables`.
 
 Crypto (information only, not financial advice)
 - `GET /api/gas` ($0.001): fees on Base, Ethereum, Arbitrum, Optimism, Polygon and Solana. `/api/solana/quote` ($0.002): Jupiter swap quote. `/api/evm/token` ($0.003): ERC-20 proxy, owner and risky-function flags. `/api/evm/wallet` ($0.003), `/api/ens` ($0.001).
