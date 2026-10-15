@@ -52,7 +52,7 @@ Crypto (information only, not financial advice)
 New: compliance, travel and media
 - `GET /api/sanctions?name=` ($0.01): OFAC, EU, UN and UK sanctions screening with fuzzy matching, aliases, scores and official links.
 - `GET /api/flights?from=&to=&date=` ($0.05): flight fares, cheapest, fastest and nonstop options with every segment.
-- `GET /api/media/transcript?url=` ($0.10 per started 10 minutes of `maxMinutes`): speech to text from TikTok, X, SoundCloud, podcasts and direct media files. `GET /api/youtube/transcript` ($0.03): a YouTube video's captions.
+- `GET /api/media/transcript?url=` ($0.10 per started 10 minutes of `maxMinutes`): speech to text from TikTok, X, SoundCloud, podcasts and direct media files. `GET /api/youtube/transcript` ($0.01): a YouTube video's captions.
 - `/api/crypto/whales` (large transfers, $0.003), `/api/ssl` (certificate expiry, $0.001), `POST /api/markdown` (Markdown to HTML, $0.001), `/api/pagespeed` (Lighthouse and Core Web Vitals, $0.005), `/api/producthunt` (launches, $0.002).
 
 AI models: `POST /api/image`, `/api/tts`, `/api/transcribe`, `/api/embed`, `/api/chat`.

@@ -28513,7 +28513,7 @@
           "price": {
             "mode": "fixed",
             "currency": "USD",
-            "amount": "0.03"
+            "amount": "0.01"
           },
           "protocols": [
             {
@@ -28526,7 +28526,7 @@
                     "name": "Base",
                     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
                     "symbol": "USDC",
-                    "amount": "30000",
+                    "amount": "10000",
                     "payTo": "0xb8491F953e6860D3b5840b73c60883Ff099ceAfA"
                   },
                   {
@@ -28534,7 +28534,7 @@
                     "name": "Solana",
                     "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
                     "symbol": "USDC",
-                    "amount": "30000",
+                    "amount": "10000",
                     "payTo": "J8vnmBx4pS1X7UUBTfz1yWBKiw69Dj2yRGRHDaXBRdhR"
                   },
                   {
@@ -28542,7 +28542,7 @@
                     "name": "Arc",
                     "asset": "0x3600000000000000000000000000000000000000",
                     "symbol": "USDC",
-                    "amount": "30000",
+                    "amount": "10000",
                     "payTo": "0xa4751fCAa83c9669cfe507bb6807507729839be3"
                   }
                 ]
