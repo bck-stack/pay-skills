@@ -1,7 +1,7 @@
 ---
 name: sitecheck
 title: "SiteCheck"
-description: "178 pay-per-call tools for agents in USDC: Bitcoin, EVM and Solana reads, DeFi and perps data, web and PDF reading, SEO/DNS checks, OCR, SEC and KYB data, geo, dev lookups, text AI."
+description: "223 pay-per-call tools for agents in USDC: Bitcoin, EVM and Solana reads, DeFi and perps data, web and PDF reading, SEO/DNS checks, OCR, SEC and KYB data, geo, dev lookups, text AI."
 use_case: "Use to read a web page or PDF, check a site (SEO, links, headers, DNS) or a company (SEC, VAT, LEI, UK registry), get macro rates, OCR an image, or check Solana and EVM tokens, wallets, gas and swap quotes."
 category: data
 service_url: https://api.sitecheck-api.workers.dev
@@ -61,6 +61,13 @@ Finance, text, reference, developer and business utilities
 - Reference: `/api/business-days`, `/api/date/calc`, `/api/units`, `/api/books`, `/api/food` (barcodes), `/api/airports`, `/api/tides`, `/api/places`: $0.001-0.002.
 - Developer: `POST /api/hash`, `POST /api/encode`, `/api/jwt/decode`, `/api/uuid`, `/api/user-agent`, `/api/robots`, `/api/subdomains`, `/api/uptime`: $0.001-0.002.
 - Business: `/api/vin`, `/api/eori` (UK), `/api/swift`, `/api/company/ticker`, `POST /api/invoice/extract`, `POST /api/resume/parse`, `/api/address/parse`: $0.001-0.005.
+
+Prediction markets, multi-chain and compliance
+- Polymarket: `/api/pm/search`, `/api/pm/event`, `/api/pm/orderbook`, `/api/pm/history`, `/api/pm/trades`, `/api/pm/wallet`, `/api/pm/activity`, `/api/pm/leaderboard`, `/api/pm/holders`, `/api/pm/resolved` ($0.003 each).
+- Chain: `POST /api/rpc/evm` (22 EVM chains, read-only), `POST /api/rpc/solana` ($0.001), `/api/token/metadata`, `/api/token/search`, `POST /api/evm/simulate` (decoded reverts), `/api/crypto/address-risk` (OFAC-listed addresses), `/api/dex/pools`, `/api/defi/chains`.
+- Compliance: `/api/screen/debarment` (World Bank), `/api/enforcement/actions` (SEC, CFPB, FTC, DOJ), `/api/tariff/uk`, `/api/tariff/us`, `/api/law/ecfr`, `/api/law/federal-register`, `/api/company/fr`, `/api/company/br`, `/api/sec/13f`.
+- Research: `/api/hn/search`, `/api/github/search`, `/api/package/search`, `/api/web/archive`, `/api/domain/typosquat`, `/api/web/security-txt`, `/api/wiki/pageviews`, `/api/apps/search` ($0.002).
+- AI text: `POST /api/text/outline`, `/api/text/headlines`, `/api/text/answer`, `/api/text/tone`, `/api/text/faq`, `/api/email/reply`, `/api/code/explain`, `/api/sql/generate`, `/api/regex/generate`, `/api/json/repair` ($0.001-0.003).
 
 AI models: `POST /api/image`, `/api/tts`, `/api/transcribe`, `/api/embed`, `/api/chat`.
 
