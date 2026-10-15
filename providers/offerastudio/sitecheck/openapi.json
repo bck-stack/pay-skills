@@ -19775,6 +19775,106 @@
     ]
    }
   },
+  "/api/screen/export-control": {
+   "get": {
+    "summary": "Check names against the US Consolidated Screening List",
+    "description": "Searches the US trade.gov Consolidated Screening List (Entity List, SDN, Denied Persons, Unverified, ITAR Debarred, etc.) by name and optional country. Each hit includes list name, aliases, addresses, programs, federal register notice, and match score. Requires env.TRADE_GOV_API_KEY. Without the key, returns 503 not charged.",
+    "tags": [
+     "compliance",
+     "sanctions",
+     "export-control",
+     "trade"
+    ],
+    "x-payment-info": {
+     "price": {
+      "mode": "fixed",
+      "currency": "USD",
+      "amount": "0.003"
+     },
+     "protocols": [
+      {
+       "x402": {
+        "version": 2,
+        "scheme": "exact",
+        "networks": [
+         {
+          "network": "eip155:8453",
+          "name": "Base",
+          "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "symbol": "USDC",
+          "amount": "3000",
+          "payTo": "0xb8491F953e6860D3b5840b73c60883Ff099ceAfA"
+         },
+         {
+          "network": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+          "name": "Solana",
+          "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "symbol": "USDC",
+          "amount": "3000",
+          "payTo": "J8vnmBx4pS1X7UUBTfz1yWBKiw69Dj2yRGRHDaXBRdhR"
+         },
+         {
+          "network": "eip155:5042",
+          "name": "Arc",
+          "asset": "0x3600000000000000000000000000000000000000",
+          "symbol": "USDC",
+          "amount": "3000",
+          "payTo": "0xa4751fCAa83c9669cfe507bb6807507729839be3"
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "responses": {
+     "200": {
+      "description": "Successful result (shape shown by the schema and example)",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object"
+        }
+       }
+      }
+     },
+     "402": {
+      "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
+     }
+    },
+    "parameters": [
+     {
+      "name": "name",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "type": "string"
+      },
+      "description": "Name or keyword to search (1–200 characters)",
+      "example": "Rosneft"
+     },
+     {
+      "name": "country",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "string"
+      },
+      "description": "Optional ISO-2 country code filter (e.g. RU, CN, IR)",
+      "example": "RU"
+     },
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "string"
+      },
+      "description": "Max results to return (1–50, default 20)",
+      "example": "5"
+     }
+    ]
+   }
+  },
   "/api/sec/13f": {
    "get": {
     "summary": "Get SEC 13F institutional holdings for a filer",
@@ -20602,6 +20702,142 @@
        "type": "string"
       },
       "description": "Results per registry, 1-10 (default 5)",
+      "example": "2"
+     }
+    ]
+   }
+  },
+  "/api/research/papers": {
+   "get": {
+    "summary": "Search scholarly works by topic with citations and OA links",
+    "description": "Searches OpenAlex (CC0) for scholarly works: title, authors with institutions, year, venue, DOI, open-access PDF link, citation count, topic and abstract (max 2,000 characters). Filters: publication year range, open access only, minimum citations; sort by relevance, citations or date (citations and date search the words as one phrase). Limit max 25.",
+    "tags": [
+     "research",
+     "papers",
+     "openalex",
+     "citations"
+    ],
+    "x-payment-info": {
+     "price": {
+      "mode": "fixed",
+      "currency": "USD",
+      "amount": "0.002"
+     },
+     "protocols": [
+      {
+       "x402": {
+        "version": 2,
+        "scheme": "exact",
+        "networks": [
+         {
+          "network": "eip155:8453",
+          "name": "Base",
+          "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "symbol": "USDC",
+          "amount": "2000",
+          "payTo": "0xb8491F953e6860D3b5840b73c60883Ff099ceAfA"
+         },
+         {
+          "network": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+          "name": "Solana",
+          "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "symbol": "USDC",
+          "amount": "2000",
+          "payTo": "J8vnmBx4pS1X7UUBTfz1yWBKiw69Dj2yRGRHDaXBRdhR"
+         },
+         {
+          "network": "eip155:5042",
+          "name": "Arc",
+          "asset": "0x3600000000000000000000000000000000000000",
+          "symbol": "USDC",
+          "amount": "2000",
+          "payTo": "0xa4751fCAa83c9669cfe507bb6807507729839be3"
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "responses": {
+     "200": {
+      "description": "Successful result (shape shown by the schema and example)",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object"
+        }
+       }
+      }
+     },
+     "402": {
+      "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
+     }
+    },
+    "parameters": [
+     {
+      "name": "q",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "type": "string"
+      },
+      "description": "Search words (1-200 characters)",
+      "example": "retrieval augmented generation"
+     },
+     {
+      "name": "fromYear",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "string"
+      },
+      "description": "Earliest publication year (optional)"
+     },
+     {
+      "name": "toYear",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "string"
+      },
+      "description": "Latest publication year (optional)"
+     },
+     {
+      "name": "openAccess",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "string"
+      },
+      "description": "Only open-access works (default false)"
+     },
+     {
+      "name": "minCitations",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "string"
+      },
+      "description": "Minimum citation count (default 0)"
+     },
+     {
+      "name": "sort",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "string"
+      },
+      "description": "relevance (default), citations or date",
+      "example": "citations"
+     },
+     {
+      "name": "limit",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "string"
+      },
+      "description": "Results, 1-25 (default 10)",
       "example": "2"
      }
     ]
