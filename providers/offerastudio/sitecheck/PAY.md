@@ -1,7 +1,7 @@
 ---
 name: sitecheck
 title: "SiteCheck"
-description: "141 pay-per-call tools for agents in USDC: Bitcoin, EVM and Solana reads, DeFi and perps data, web and PDF reading, SEO/DNS checks, OCR, SEC and KYB data, geo, dev lookups, text AI."
+description: "178 pay-per-call tools for agents in USDC: Bitcoin, EVM and Solana reads, DeFi and perps data, web and PDF reading, SEO/DNS checks, OCR, SEC and KYB data, geo, dev lookups, text AI."
 use_case: "Use to read a web page or PDF, check a site (SEO, links, headers, DNS) or a company (SEC, VAT, LEI, UK registry), get macro rates, OCR an image, or check Solana and EVM tokens, wallets, gas and swap quotes."
 category: data
 service_url: https://api.sitecheck-api.workers.dev
@@ -54,6 +54,13 @@ New: compliance, travel and media
 - `GET /api/flights?from=&to=&date=` ($0.05): flight fares, cheapest, fastest and nonstop options with every segment.
 - `GET /api/media/transcript?url=` ($0.0009 per minute of `maxMinutes`, at least $0.002): speech to text from TikTok, X, SoundCloud, podcasts and direct media files. `GET /api/youtube/transcript` ($0.01): a YouTube video's captions.
 - `/api/crypto/whales` (large transfers, $0.003), `/api/ssl` (certificate expiry, $0.001), `POST /api/markdown` (Markdown to HTML, $0.001), `/api/pagespeed` (Lighthouse and Core Web Vitals, $0.005), `/api/producthunt` (launches, $0.002).
+
+Finance, text, reference, developer and business utilities
+- Finance: `/api/crypto/funding` (perp funding and open interest across venues), `/api/crypto/indicators` (RSI, MACD, Bollinger, ATR), `/api/crypto/news`, `/api/crypto/convert`, `/api/econ/indicator` (World Bank), `/api/finance/loan` (amortisation, NPV, IRR): $0.001-0.002.
+- Text: `POST /api/text/grammar`, `/api/text/readability`, `/api/text/keywords`, `/api/text/diff`, `/api/text/chunk`, `/api/text/paraphrase`, `/api/text/transliterate`, `POST /api/translate/subtitles` (SRT/VTT with timings kept): $0.001-0.004.
+- Reference: `/api/business-days`, `/api/date/calc`, `/api/units`, `/api/books`, `/api/food` (barcodes), `/api/airports`, `/api/tides`, `/api/places`: $0.001-0.002.
+- Developer: `POST /api/hash`, `POST /api/encode`, `/api/jwt/decode`, `/api/uuid`, `/api/user-agent`, `/api/robots`, `/api/subdomains`, `/api/uptime`: $0.001-0.002.
+- Business: `/api/vin`, `/api/eori` (UK), `/api/swift`, `/api/company/ticker`, `POST /api/invoice/extract`, `POST /api/resume/parse`, `/api/address/parse`: $0.001-0.005.
 
 AI models: `POST /api/image`, `/api/tts`, `/api/transcribe`, `/api/embed`, `/api/chat`.
 
