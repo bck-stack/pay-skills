@@ -1,7 +1,7 @@
 ---
 name: sitecheck
 title: "SiteCheck"
-description: "132 pay-per-call tools for agents in USDC: Bitcoin, EVM and Solana reads, DeFi and perps data, web and PDF reading, SEO/DNS checks, OCR, SEC and KYB data, geo, dev lookups, text AI."
+description: "141 pay-per-call tools for agents in USDC: Bitcoin, EVM and Solana reads, DeFi and perps data, web and PDF reading, SEO/DNS checks, OCR, SEC and KYB data, geo, dev lookups, text AI."
 use_case: "Use to read a web page or PDF, check a site (SEO, links, headers, DNS) or a company (SEC, VAT, LEI, UK registry), get macro rates, OCR an image, or check Solana and EVM tokens, wallets, gas and swap quotes."
 category: data
 service_url: https://api.sitecheck-api.workers.dev
@@ -48,6 +48,12 @@ Crypto (information only, not financial advice)
 - `GET /api/solana/trending` ($0.003): trending, new, top-traded or top-organic tokens with the same flags.
 - `GET /api/solana/wallet?address=` ($0.003): SOL and token balances with USD values.
 - `GET /api/markets`, `/api/markets/brief`, `POST /api/markets/quote`, `POST /api/markets/build-buy`: Panta prediction markets (search, odds, quote, unsigned buy transaction the agent signs itself).
+
+New: compliance, travel and media
+- `GET /api/sanctions?name=` ($0.01): OFAC, EU, UN and UK sanctions screening with fuzzy matching, aliases, scores and official links.
+- `GET /api/flights?from=&to=&date=` ($0.05): flight fares, cheapest, fastest and nonstop options with every segment.
+- `GET /api/media/transcript?url=` ($0.10 per started 10 minutes of `maxMinutes`): speech to text from TikTok, X, SoundCloud, podcasts and direct media files. `GET /api/youtube/transcript` ($0.03): a YouTube video's captions.
+- `/api/crypto/whales` (large transfers, $0.003), `/api/ssl` (certificate expiry, $0.001), `POST /api/markdown` (Markdown to HTML, $0.001), `/api/pagespeed` (Lighthouse and Core Web Vitals, $0.005), `/api/producthunt` (launches, $0.002).
 
 AI models: `POST /api/image`, `/api/tts`, `/api/transcribe`, `/api/embed`, `/api/chat`.
 

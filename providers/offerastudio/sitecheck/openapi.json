@@ -3,7 +3,7 @@
   "info": {
     "title": "SiteCheck API",
     "version": "1.2.0",
-    "description": "Pay-per-call tools for AI agents: image generation, speech-to-text, text-to-speech, embeddings, LLM chat, website audits and contact enrichment, web page to Markdown reader, PDF to text, sitemap URLs, tech stack detection, translation, exchange rates, e-mail pre-check, domain RDAP/DNS lookup, Solana token checks, trending tokens and wallet holdings, plus business and compliance data (EU VAT/VIES, IBAN, LEI/GLEIF, US recalls, OSHA/EPA violations, UK insolvency notices). Also: SEO metadata, link checking, redirect chains, security headers, mail DNS (SPF, DMARC, DKIM), QR codes, language detection, photo EXIF, identifier validation, image OCR, SEC filings, SEC financials, Congress bills, macro rates, UK company data, GitHub repo stats, Hacker News, Wikipedia, gas prices, Solana swap quotes, ERC-20 token checks, ENS names, EVM wallet balances, EVM balances, transactions and contract calls, Solana transactions and accounts, crypto prices, candles and order books, DeFi TVL, yields and stablecoins, SEC insider trades, weather, geocoding and holidays, IP owners and postcodes, npm, PyPI and crates package data and vulnerabilities, GitHub profiles, arXiv papers and DOIs, structured extraction, summaries, sentiment and reranking, HTML tables and RSS feeds, Bitcoin fees, addresses and transactions, Bitcoin address balances, Bitcoin transaction status, EVM calldata decoding, verified EVM contracts, Hyperliquid perpetual markets, Hyperliquid account positions, Polymarket odds, crypto fear and greed, DeFi fees, DEX volume, company registries of four countries, ISIN, CUSIP and ticker lookup, SEC full-text search, SEC 8-K events, FDA drug labels, FDA adverse event counts, clinical trials, PubMed articles, US federal grants, EU public tenders, NPI provider lookup, US address geocoding, USGS earthquakes, NWS weather alerts, sunrise and moon times, time zone conversion, distance and bearing, GDACS disaster alerts, llms.txt checks, AI crawler access, tracker and cookie audits, certificate transparency, site logos and icons, GitHub releases, GitHub issues, Stack Overflow answers, read-only Wikidata queries, text moderation, image descriptions, text classification, named entity extraction, PII redaction, phone number checks, cron explanations, JSON Schema validation. Plus prediction-market search, briefs, quotes and unsigned buy transactions, powered by Panta. Payment: x402, USDC on Base, Solana or Arc. No signup, no API key.",
+    "description": "Pay-per-call tools for AI agents: image generation, speech-to-text, text-to-speech, embeddings, LLM chat, website audits and contact enrichment, web page to Markdown reader, PDF to text, sitemap URLs, tech stack detection, translation, exchange rates, e-mail pre-check, domain RDAP/DNS lookup, Solana token checks, trending tokens and wallet holdings, plus business and compliance data (EU VAT/VIES, IBAN, LEI/GLEIF, US recalls, OSHA/EPA violations, UK insolvency notices). Also: SEO metadata, link checking, redirect chains, security headers, mail DNS (SPF, DMARC, DKIM), QR codes, language detection, photo EXIF, identifier validation, image OCR, SEC filings, SEC financials, Congress bills, macro rates, UK company data, GitHub repo stats, Hacker News, Wikipedia, gas prices, Solana swap quotes, ERC-20 token checks, ENS names, EVM wallet balances, EVM balances, transactions and contract calls, Solana transactions and accounts, crypto prices, candles and order books, DeFi TVL, yields and stablecoins, SEC insider trades, weather, geocoding and holidays, IP owners and postcodes, npm, PyPI and crates package data and vulnerabilities, GitHub profiles, arXiv papers and DOIs, structured extraction, summaries, sentiment and reranking, HTML tables and RSS feeds, Bitcoin fees, addresses and transactions, Bitcoin address balances, Bitcoin transaction status, EVM calldata decoding, verified EVM contracts, Hyperliquid perpetual markets, Hyperliquid account positions, Polymarket odds, crypto fear and greed, DeFi fees, DEX volume, company registries of four countries, ISIN, CUSIP and ticker lookup, SEC full-text search, SEC 8-K events, FDA drug labels, FDA adverse event counts, clinical trials, PubMed articles, US federal grants, EU public tenders, NPI provider lookup, US address geocoding, USGS earthquakes, NWS weather alerts, sunrise and moon times, time zone conversion, distance and bearing, GDACS disaster alerts, llms.txt checks, AI crawler access, tracker and cookie audits, certificate transparency, site logos and icons, GitHub releases, GitHub issues, Stack Overflow answers, read-only Wikidata queries, text moderation, image descriptions, text classification, named entity extraction, PII redaction, phone number checks, cron explanations, JSON Schema validation, whale transfers, SSL certificate expiry, Markdown to HTML, PageSpeed scores, Product Hunt launches, sanctions screening (OFAC, EU, UN, UK), flight fare search, YouTube transcripts, speech to text from media links. Plus prediction-market search, briefs, quotes and unsigned buy transactions, powered by Panta. Payment: x402, USDC on Base, Solana or Arc. No signup, no API key.",
     "contact": {
       "url": "https://github.com/bck-stack/sitecheck-x402",
       "email": "hello@offerastudio.com"
@@ -20043,7 +20043,7 @@
     "/api/sec/search": {
       "get": {
         "summary": "Search SEC EDGAR filings by full text",
-        "description": "Full-text search of SEC EDGAR filings: company, CIK, form, filing date, file name, a link to the filing and the matched excerpt when there is one. Filter by form types (e.g. 8-K,10-K) and filing dates. Results are capped at 20. US government data.",
+        "description": "Full-text search of SEC EDGAR filings: company, CIK, form, filing date, file name, a link to the matched document, its file type (e.g. EX-99.1) and the 8-K items. Results are in EDGAR relevance order; a total of 10,000 means at least that many. Filter by form types (e.g. 8-K,10-K) and filing dates. Results are capped at 20. US government data.",
         "tags": [
           "sec",
           "edgar",
@@ -20137,6 +20137,18 @@
                         "null"
                       ]
                     },
+                    "totalIsLowerBound": {
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    "order": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
                     "hits": {
                       "type": "array",
                       "items": {
@@ -20178,11 +20190,20 @@
                               "null"
                             ]
                           },
-                          "excerpt": {
+                          "fileType": {
                             "type": [
                               "string",
                               "null"
                             ]
+                          },
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
                           }
                         }
                       }
@@ -21227,7 +21248,7 @@
     "/api/grants": {
       "get": {
         "summary": "Search US federal grant opportunities on Grants.gov",
-        "description": "US federal grant opportunities from Grants.gov matching keywords: number, title, agency, open and close dates, status and link. Posted and forecasted opportunities by default. US government data.",
+        "description": "US federal grant opportunities from Grants.gov matching keywords: number, title, agency, open and close dates (YYYY-MM-DD), status and link, newest opening date first. Grants.gov matches keywords anywhere in the full listing, not only the title. Posted and forecasted opportunities by default. US government data.",
         "tags": [
           "grants",
           "funding",
@@ -21421,7 +21442,7 @@
     "/api/eu-tenders": {
       "get": {
         "summary": "Search active EU public tenders on TED",
-        "description": "Active EU public tenders from TED matching words, optionally for one buyer country: notice number, title, buyer, country, publication date, deadline, CPV codes and link. Country is an ISO alpha-3 code (DEU, FRA, POL). Attribution: TED, EU open data.",
+        "description": "Active EU public tenders from TED matching words, optionally for one buyer country: notice number, title, buyer, country, publication date, deadline, CPV codes and link, newest first. Country is an ISO alpha-3 code (DEU, FRA, POL). Attribution: TED, EU open data.",
         "tags": [
           "eu",
           "tenders",
@@ -22226,7 +22247,7 @@
     "/api/weather/alerts": {
       "get": {
         "summary": "Check active US weather alerts for a state or point",
-        "description": "Active US National Weather Service alerts for a state or a point: event, severity, urgency, area, onset, expiry, headline and instruction (cut to 400 characters). Attribution: National Weather Service, public domain.",
+        "description": "Active US National Weather Service alerts for a state or a point: event, severity, urgency, area, onset, end of the event (ends), expiry of this message (expires), headline and instruction (cut to 400 characters). Attribution: National Weather Service, public domain.",
         "tags": [
           "weather",
           "alerts",
@@ -26175,6 +26196,2811 @@
             }
           }
         }
+      }
+    },
+    "/api/crypto/whales": {
+      "get": {
+        "summary": "Search large stablecoin transfers in recent blocks",
+        "description": "Large stablecoin and major-token transfers in the last few minutes on Ethereum, Base, Arbitrum, Optimism or Polygon: hash, block time, sender, receiver, amount and USD value at the Coinbase spot price, sorted by value. Labels only for a few known addresses; others are null. One token contract is read over public RPC, so the window is short. Information only, not financial advice.",
+        "tags": [
+          "whale transfers",
+          "stablecoins",
+          "usdc",
+          "large transfers",
+          "on-chain",
+          "ethereum",
+          "base",
+          "monitoring"
+        ],
+        "x-payment-info": {
+          "price": {
+            "mode": "fixed",
+            "currency": "USD",
+            "amount": "0.003"
+          },
+          "protocols": [
+            {
+              "x402": {
+                "version": 2,
+                "scheme": "exact",
+                "networks": [
+                  {
+                    "network": "eip155:8453",
+                    "name": "Base",
+                    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+                    "symbol": "USDC",
+                    "amount": "3000",
+                    "payTo": "0xb8491F953e6860D3b5840b73c60883Ff099ceAfA"
+                  },
+                  {
+                    "network": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+                    "name": "Solana",
+                    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                    "symbol": "USDC",
+                    "amount": "3000",
+                    "payTo": "J8vnmBx4pS1X7UUBTfz1yWBKiw69Dj2yRGRHDaXBRdhR"
+                  },
+                  {
+                    "network": "eip155:5042",
+                    "name": "Arc",
+                    "asset": "0x3600000000000000000000000000000000000000",
+                    "symbol": "USDC",
+                    "amount": "3000",
+                    "payTo": "0xa4751fCAa83c9669cfe507bb6807507729839be3"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "chain": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "token": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "tokenAddress": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "decimals": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "priceUsd": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "minUsd": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "window": {
+                      "type": "object",
+                      "properties": {
+                        "fromBlock": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "toBlock": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "blocks": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        }
+                      }
+                    },
+                    "scanned": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "total": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "returned": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "truncated": {
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    "transfers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "txHash": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "block": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
+                          },
+                          "time": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "from": {
+                            "type": "object",
+                            "properties": {
+                              "address": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "label": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "kind": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            }
+                          },
+                          "to": {
+                            "type": "object",
+                            "properties": {
+                              "address": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "label": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "kind": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            }
+                          },
+                          "amount": {
+                            "type": [
+                              "number",
+                              "null"
+                            ]
+                          },
+                          "usd": {
+                            "type": [
+                              "number",
+                              "null"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "checkedAt": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "disclaimer": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "source": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "note": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
+          }
+        },
+        "parameters": [
+          {
+            "name": "chain",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ethereum (default), base, arbitrum, optimism or polygon",
+            "example": "base"
+          },
+          {
+            "name": "token",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "USDC (default), USDT, WETH, WBTC or cbBTC, where the chain has it",
+            "example": "USDC"
+          },
+          {
+            "name": "minUsd",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Minimum USD value per transfer, default 1000000, at least 10000",
+            "example": "100000"
+          },
+          {
+            "name": "blocks",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Blocks to scan back from the latest: ethereum 10 (default, max 25), base and optimism 20 (max 40), arbitrum and polygon 40 (max 80)",
+            "example": "20"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Transfers to return, 1 to 50, default 20",
+            "example": "3"
+          }
+        ]
+      }
+    },
+    "/api/ssl": {
+      "get": {
+        "summary": "Check TLS certificate expiry for up to 10 hosts",
+        "description": "TLS certificate expiry for up to 10 hostnames: the issuer, validity dates, days left, all DNS names and a status (ok, expiring within 14 days, expired, none found). Read from Certificate Transparency logs (CertSpotter, crt.sh as fallback), so it is the newest valid certificate issued for each name, not the one the server presents; the answer also says whether https answers and its HSTS header. Public hostnames only.",
+        "tags": [
+          "ssl",
+          "tls",
+          "certificate",
+          "expiry",
+          "certificate transparency",
+          "domain monitoring",
+          "devops"
+        ],
+        "x-payment-info": {
+          "price": {
+            "mode": "fixed",
+            "currency": "USD",
+            "amount": "0.001"
+          },
+          "protocols": [
+            {
+              "x402": {
+                "version": 2,
+                "scheme": "exact",
+                "networks": [
+                  {
+                    "network": "eip155:8453",
+                    "name": "Base",
+                    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+                    "symbol": "USDC",
+                    "amount": "1000",
+                    "payTo": "0xb8491F953e6860D3b5840b73c60883Ff099ceAfA"
+                  },
+                  {
+                    "network": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+                    "name": "Solana",
+                    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                    "symbol": "USDC",
+                    "amount": "1000",
+                    "payTo": "J8vnmBx4pS1X7UUBTfz1yWBKiw69Dj2yRGRHDaXBRdhR"
+                  },
+                  {
+                    "network": "eip155:5042",
+                    "name": "Arc",
+                    "asset": "0x3600000000000000000000000000000000000000",
+                    "symbol": "USDC",
+                    "amount": "1000",
+                    "payTo": "0xa4751fCAa83c9669cfe507bb6807507729839be3"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "host": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "status": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "certificate": {
+                            "type": "object",
+                            "properties": {
+                              "issuer": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "notBefore": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "notAfter": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "daysLeft": {
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ]
+                              },
+                              "dnsNames": {
+                                "type": "array",
+                                "items": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                }
+                              },
+                              "wildcard": {
+                                "type": [
+                                  "boolean",
+                                  "null"
+                                ]
+                              }
+                            }
+                          },
+                          "https": {
+                            "type": "object",
+                            "properties": {
+                              "answers": {
+                                "type": [
+                                  "boolean",
+                                  "null"
+                                ]
+                              },
+                              "status": {
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ]
+                              },
+                              "hsts": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            }
+                          },
+                          "ctSource": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "count": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "checkedAt": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "basis": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "source": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "note": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
+          }
+        },
+        "parameters": [
+          {
+            "name": "hosts",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Comma-separated public hostnames, 1 to 10, e.g. github.com,example.com",
+            "example": "github.com,example.com"
+          }
+        ]
+      }
+    },
+    "/api/markdown": {
+      "post": {
+        "summary": "Convert Markdown to HTML with headings and links",
+        "description": "Markdown to HTML with GitHub-flavoured tables and strikethrough, heading ids, the list of headings and links, and a word count. Raw HTML in the input is escaped unless allowHtml is true; links and images with javascript:, vbscript: or data: addresses are removed. Pure code, no outbound request. Input up to 200 KB.",
+        "tags": [
+          "markdown",
+          "html",
+          "conversion",
+          "markdown to html",
+          "rendering",
+          "documents"
+        ],
+        "x-payment-info": {
+          "price": {
+            "mode": "fixed",
+            "currency": "USD",
+            "amount": "0.001"
+          },
+          "protocols": [
+            {
+              "x402": {
+                "version": 2,
+                "scheme": "exact",
+                "networks": [
+                  {
+                    "network": "eip155:8453",
+                    "name": "Base",
+                    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+                    "symbol": "USDC",
+                    "amount": "1000",
+                    "payTo": "0xb8491F953e6860D3b5840b73c60883Ff099ceAfA"
+                  },
+                  {
+                    "network": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+                    "name": "Solana",
+                    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                    "symbol": "USDC",
+                    "amount": "1000",
+                    "payTo": "J8vnmBx4pS1X7UUBTfz1yWBKiw69Dj2yRGRHDaXBRdhR"
+                  },
+                  {
+                    "network": "eip155:5042",
+                    "name": "Arc",
+                    "asset": "0x3600000000000000000000000000000000000000",
+                    "symbol": "USDC",
+                    "amount": "1000",
+                    "payTo": "0xa4751fCAa83c9669cfe507bb6807507729839be3"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "html": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "headings": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "level": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
+                          },
+                          "text": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "id": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "links": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "href": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "text": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "wordCount": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "options": {
+                      "type": "object",
+                      "properties": {
+                        "gfm": {
+                          "type": [
+                            "boolean",
+                            "null"
+                          ]
+                        },
+                        "allowHtml": {
+                          "type": [
+                            "boolean",
+                            "null"
+                          ]
+                        },
+                        "headingIds": {
+                          "type": [
+                            "boolean",
+                            "null"
+                          ]
+                        }
+                      }
+                    },
+                    "checkedAt": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "source": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "markdown": {
+                    "type": "string",
+                    "description": "The Markdown text, up to 200 KB"
+                  },
+                  "gfm": {
+                    "type": "boolean",
+                    "description": "GitHub-flavoured Markdown, default true"
+                  },
+                  "allowHtml": {
+                    "type": "boolean",
+                    "description": "Keep raw HTML from the input, default false (escaped)"
+                  },
+                  "headingIds": {
+                    "type": "boolean",
+                    "description": "Give each heading an id, default true"
+                  }
+                },
+                "required": [
+                  "markdown"
+                ]
+              },
+              "example": {
+                "markdown": "# Pay per call\n\nAgents pay **USDC** for each answer, see [the docs](https://docs.x402.org/introduction).\n\n## Pricing\n\n- one cent per call\n- nothing for failures\n"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/pagespeed": {
+      "get": {
+        "summary": "Get PageSpeed scores and Core Web Vitals for a URL",
+        "description": "Google PageSpeed Insights for one public URL: the Lighthouse scores (performance, seo, accessibility, best-practices), the lab Core Web Vitals (FCP, LCP, CLS, TBT, Speed Index), the CrUX field data when Google has it (LCP, INP, CLS), and the top five opportunities with estimated savings. Mobile by default. A run takes 10 to 40 seconds and is cached for an hour. Keyless calls share Google's quota, so a busy moment is a 503.",
+        "tags": [
+          "pagespeed",
+          "lighthouse",
+          "core web vitals",
+          "performance",
+          "seo",
+          "accessibility",
+          "web performance"
+        ],
+        "x-payment-info": {
+          "price": {
+            "mode": "fixed",
+            "currency": "USD",
+            "amount": "0.005"
+          },
+          "protocols": [
+            {
+              "x402": {
+                "version": 2,
+                "scheme": "exact",
+                "networks": [
+                  {
+                    "network": "eip155:8453",
+                    "name": "Base",
+                    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+                    "symbol": "USDC",
+                    "amount": "5000",
+                    "payTo": "0xb8491F953e6860D3b5840b73c60883Ff099ceAfA"
+                  },
+                  {
+                    "network": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+                    "name": "Solana",
+                    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                    "symbol": "USDC",
+                    "amount": "5000",
+                    "payTo": "J8vnmBx4pS1X7UUBTfz1yWBKiw69Dj2yRGRHDaXBRdhR"
+                  },
+                  {
+                    "network": "eip155:5042",
+                    "name": "Arc",
+                    "asset": "0x3600000000000000000000000000000000000000",
+                    "symbol": "USDC",
+                    "amount": "5000",
+                    "payTo": "0xa4751fCAa83c9669cfe507bb6807507729839be3"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "finalUrl": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "strategy": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "categories": {
+                      "type": "object",
+                      "properties": {
+                        "performance": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        }
+                      }
+                    },
+                    "labMetrics": {
+                      "type": "object",
+                      "properties": {
+                        "fcp": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "display": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "lcp": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "display": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "cls": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "display": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "tbt": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "display": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "si": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "display": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "fieldData": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "opportunities": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "title": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "estimatedSavingsMs": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
+                          },
+                          "estimatedSavingsBytes": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "lighthouseVersion": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "measuredAt": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "checkedAt": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "source": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
+          }
+        },
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "http or https URL of a public page, e.g. https://example.com/",
+            "example": "https://example.com/"
+          },
+          {
+            "name": "strategy",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "mobile (default) or desktop",
+            "example": "mobile"
+          },
+          {
+            "name": "categories",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "performance (default), seo, accessibility, best-practices; comma-separated",
+            "example": "performance"
+          }
+        ]
+      }
+    },
+    "/api/producthunt": {
+      "get": {
+        "summary": "Search Product Hunt launches by day, topic or text",
+        "description": "Product Hunt launches: today's top launches, the newest in one topic (for example artificial-intelligence), or a text search over the newest launches. Each has name, tagline, votes, comments, launch time, links and topics. Today is the top 20 by ranking kept when posted on today's UTC date; search covers the newest 60 launches only. Needs a Product Hunt developer token on the deployment; without one the answer is a 503, not charged.",
+        "tags": [
+          "product hunt",
+          "launches",
+          "startups",
+          "new products",
+          "product launches",
+          "market research"
+        ],
+        "x-payment-info": {
+          "price": {
+            "mode": "fixed",
+            "currency": "USD",
+            "amount": "0.002"
+          },
+          "protocols": [
+            {
+              "x402": {
+                "version": 2,
+                "scheme": "exact",
+                "networks": [
+                  {
+                    "network": "eip155:8453",
+                    "name": "Base",
+                    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+                    "symbol": "USDC",
+                    "amount": "2000",
+                    "payTo": "0xb8491F953e6860D3b5840b73c60883Ff099ceAfA"
+                  },
+                  {
+                    "network": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+                    "name": "Solana",
+                    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                    "symbol": "USDC",
+                    "amount": "2000",
+                    "payTo": "J8vnmBx4pS1X7UUBTfz1yWBKiw69Dj2yRGRHDaXBRdhR"
+                  },
+                  {
+                    "network": "eip155:5042",
+                    "name": "Arc",
+                    "asset": "0x3600000000000000000000000000000000000000",
+                    "symbol": "USDC",
+                    "amount": "2000",
+                    "payTo": "0xa4751fCAa83c9669cfe507bb6807507729839be3"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "mode": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "date": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "count": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "posts": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "tagline": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "votes": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
+                          },
+                          "comments": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
+                          },
+                          "launchedAt": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "url": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "website": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "topics": {
+                            "type": "array",
+                            "items": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "scanned": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "checkedAt": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "source": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "note": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
+          }
+        },
+        "parameters": [
+          {
+            "name": "mode",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "today (default), topic or search",
+            "example": "today"
+          },
+          {
+            "name": "topic",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Topic slug for mode topic, e.g. artificial-intelligence"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Words to match in the name or tagline, for mode search"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Launches to return, 1 to 20, default 10",
+            "example": "3"
+          }
+        ]
+      }
+    },
+    "/api/sanctions": {
+      "get": {
+        "summary": "Check a name against OFAC, EU, UN and UK sanctions lists",
+        "description": "Screen one person, company, vessel or aircraft name against the OFAC SDN and Consolidated lists, the EU consolidated list, the UN Security Council list and the UK Sanctions List (official files, refreshed daily). Fuzzy matching with aliases, transliteration and an optional country and date of birth to sharpen the score. Returns each possible match with its list, entry ID, score, programmes and official link. A screening aid, not a legal determination.",
+        "tags": [
+          "sanctions",
+          "ofac",
+          "kyc",
+          "aml",
+          "compliance",
+          "screening",
+          "kyb",
+          "eu sanctions",
+          "uk sanctions"
+        ],
+        "x-payment-info": {
+          "price": {
+            "mode": "fixed",
+            "currency": "USD",
+            "amount": "0.01"
+          },
+          "protocols": [
+            {
+              "x402": {
+                "version": 2,
+                "scheme": "exact",
+                "networks": [
+                  {
+                    "network": "eip155:8453",
+                    "name": "Base",
+                    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+                    "symbol": "USDC",
+                    "amount": "10000",
+                    "payTo": "0xb8491F953e6860D3b5840b73c60883Ff099ceAfA"
+                  },
+                  {
+                    "network": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+                    "name": "Solana",
+                    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                    "symbol": "USDC",
+                    "amount": "10000",
+                    "payTo": "J8vnmBx4pS1X7UUBTfz1yWBKiw69Dj2yRGRHDaXBRdhR"
+                  },
+                  {
+                    "network": "eip155:5042",
+                    "name": "Arc",
+                    "asset": "0x3600000000000000000000000000000000000000",
+                    "symbol": "USDC",
+                    "amount": "10000",
+                    "payTo": "0xa4751fCAa83c9669cfe507bb6807507729839be3"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "type": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "country": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "dob": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "threshold": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "lists": {
+                          "type": "array",
+                          "items": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "hit": {
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    "bestScore": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "matches": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "list": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "entryId": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "primaryName": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "matchedName": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "matchedIsAlias": {
+                            "type": [
+                              "boolean",
+                              "null"
+                            ]
+                          },
+                          "score": {
+                            "type": [
+                              "integer",
+                              "null"
+                            ]
+                          },
+                          "entityType": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "programmes": {
+                            "type": "array",
+                            "items": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          },
+                          "countries": {
+                            "type": "array",
+                            "items": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          },
+                          "datesOfBirth": {
+                            "type": "array",
+                            "items": {}
+                          },
+                          "listingDate": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "url": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "source": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "scoreNotes": {
+                            "type": "array",
+                            "items": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "listsChecked": {
+                      "type": "array",
+                      "items": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "listsVersion": {
+                      "type": "object",
+                      "properties": {
+                        "ofac-sdn": {
+                          "type": "object",
+                          "properties": {
+                            "publishedOn": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "downloadedAt": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "entries": {
+                              "type": [
+                                "integer",
+                                "null"
+                              ]
+                            },
+                            "status": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "source": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "note": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "ofac-consolidated": {
+                          "type": "object",
+                          "properties": {
+                            "publishedOn": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "downloadedAt": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "entries": {
+                              "type": [
+                                "integer",
+                                "null"
+                              ]
+                            },
+                            "status": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "source": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "note": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "eu-sanctions-map": {
+                          "type": "object",
+                          "properties": {
+                            "publishedOn": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "downloadedAt": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "entries": {
+                              "type": [
+                                "integer",
+                                "null"
+                              ]
+                            },
+                            "status": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "source": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "note": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "un-consolidated": {
+                          "type": "object",
+                          "properties": {
+                            "publishedOn": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "downloadedAt": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "entries": {
+                              "type": [
+                                "integer",
+                                "null"
+                              ]
+                            },
+                            "status": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "source": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "note": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "uk-sanctions": {
+                          "type": "object",
+                          "properties": {
+                            "publishedOn": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "downloadedAt": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "entries": {
+                              "type": [
+                                "integer",
+                                "null"
+                              ]
+                            },
+                            "status": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "source": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "note": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "checkedAt": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "source": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "disclaimer": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Name to screen (person, company, vessel or aircraft), up to 200 characters",
+            "example": "Rosneft Oil Company"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "person or entity (optional, sharpens the score)",
+            "example": "entity"
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Country or nationality, ISO code or name (optional, raises or lowers the score)"
+          },
+          {
+            "name": "dob",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Date of birth for a person: YYYY-MM-DD, YYYY-MM or YYYY (optional)"
+          },
+          {
+            "name": "threshold",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Match threshold 50-100, default 85 (lower finds more and more false alarms)"
+          },
+          {
+            "name": "lists",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Comma-separated lists, default all: ofac-sdn, ofac-consolidated, eu-sanctions-map, un-consolidated, uk-sanctions"
+          }
+        ]
+      }
+    },
+    "/api/flights": {
+      "get": {
+        "summary": "Search flight fares for a route and date, with nonstop options",
+        "description": "Flight fares for one route and date, one-way or round trip: the cheapest, the fastest and the cheapest nonstop option, then up to 20 itineraries sorted by price with carrier, stops, duration, departure and arrival times (local and UTC), every flight segment and aircraft. Cabin, maximum stops and market (sets the currency) are optional. Fares for a single traveller from Ignav; a fare search, not a booking.",
+        "tags": [
+          "flights",
+          "airfare",
+          "travel",
+          "flight search",
+          "cheap flights",
+          "itinerary",
+          "airlines"
+        ],
+        "x-payment-info": {
+          "price": {
+            "mode": "fixed",
+            "currency": "USD",
+            "amount": "0.05"
+          },
+          "protocols": [
+            {
+              "x402": {
+                "version": 2,
+                "scheme": "exact",
+                "networks": [
+                  {
+                    "network": "eip155:8453",
+                    "name": "Base",
+                    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+                    "symbol": "USDC",
+                    "amount": "50000",
+                    "payTo": "0xb8491F953e6860D3b5840b73c60883Ff099ceAfA"
+                  },
+                  {
+                    "network": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+                    "name": "Solana",
+                    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                    "symbol": "USDC",
+                    "amount": "50000",
+                    "payTo": "J8vnmBx4pS1X7UUBTfz1yWBKiw69Dj2yRGRHDaXBRdhR"
+                  },
+                  {
+                    "network": "eip155:5042",
+                    "name": "Arc",
+                    "asset": "0x3600000000000000000000000000000000000000",
+                    "symbol": "USDC",
+                    "amount": "50000",
+                    "payTo": "0xa4751fCAa83c9669cfe507bb6807507729839be3"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query": {
+                      "type": "object",
+                      "properties": {
+                        "from": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "to": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "date": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "return": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "cabin": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "maxStops": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "market": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        }
+                      }
+                    },
+                    "count": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "currency": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "cheapest": {
+                      "type": "object",
+                      "properties": {
+                        "price": {
+                          "type": "object",
+                          "properties": {
+                            "amount": {
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "currency": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "status": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "carrier": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "stops": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "durationMinutes": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        }
+                      }
+                    },
+                    "fastest": {
+                      "type": "object",
+                      "properties": {
+                        "price": {
+                          "type": "object",
+                          "properties": {
+                            "amount": {
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "currency": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "status": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "carrier": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "stops": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "durationMinutes": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        }
+                      }
+                    },
+                    "cheapestNonstop": {
+                      "type": "object",
+                      "properties": {
+                        "price": {
+                          "type": "object",
+                          "properties": {
+                            "amount": {
+                              "type": [
+                                "number",
+                                "null"
+                              ]
+                            },
+                            "currency": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "status": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "carrier": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "stops": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "durationMinutes": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        }
+                      }
+                    },
+                    "itineraries": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "price": {
+                            "type": "object",
+                            "properties": {
+                              "amount": {
+                                "type": [
+                                  "number",
+                                  "null"
+                                ]
+                              },
+                              "currency": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "status": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            }
+                          },
+                          "outbound": {
+                            "type": "object",
+                            "properties": {
+                              "carrier": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "stops": {
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ]
+                              },
+                              "durationMinutes": {
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ]
+                              },
+                              "departure": {
+                                "type": "object",
+                                "properties": {
+                                  "airport": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
+                                  "local": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
+                                  "utc": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  }
+                                }
+                              },
+                              "arrival": {
+                                "type": "object",
+                                "properties": {
+                                  "airport": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
+                                  "local": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
+                                  "utc": {
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  }
+                                }
+                              },
+                              "segments": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "flight": {
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    },
+                                    "operatedBy": {
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    },
+                                    "from": {
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    },
+                                    "to": {
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    },
+                                    "departureLocal": {
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    },
+                                    "arrivalLocal": {
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    },
+                                    "durationMinutes": {
+                                      "type": [
+                                        "integer",
+                                        "null"
+                                      ]
+                                    },
+                                    "aircraft": {
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "inbound": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "cabin": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "selfTransfer": {
+                            "type": [
+                              "boolean",
+                              "null"
+                            ]
+                          },
+                          "ignavId": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "observedAt": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "note": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "checkedAt": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "source": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
+          }
+        },
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Departure airport, 3-letter IATA code, e.g. IST",
+            "example": "IST"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Arrival airport, 3-letter IATA code, e.g. LHR",
+            "example": "LHR"
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Departure date YYYY-MM-DD (today to 330 days ahead)",
+            "example": "2026-11-20"
+          },
+          {
+            "name": "return",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Return date YYYY-MM-DD for a round trip (optional)"
+          },
+          {
+            "name": "cabin",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "economy (default), premium_economy, business or first"
+          },
+          {
+            "name": "maxStops",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Maximum stops per direction: 0, 1, 2 or 3 (optional)"
+          },
+          {
+            "name": "market",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "2-letter country code that sets the currency, default US (USD); e.g. GB, DE, TR"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Itineraries to return, 1-20, default 10"
+          }
+        ]
+      }
+    },
+    "/api/youtube/transcript": {
+      "get": {
+        "summary": "Read the captions of a YouTube video as text",
+        "description": "A YouTube video's captions as plain text and timestamped segments, with the video's title, channel, duration, views, publish date, chapters and the list of caption languages. Accepts watch, youtu.be, shorts, embed and live links or the 11-character id; pick a language with lang (default English, else the first track). Auto-generated captions contain recognition errors. A video without captions is a 404 and not charged.",
+        "tags": [
+          "youtube",
+          "transcript",
+          "captions",
+          "subtitles",
+          "video",
+          "summarize video"
+        ],
+        "x-payment-info": {
+          "price": {
+            "mode": "fixed",
+            "currency": "USD",
+            "amount": "0.03"
+          },
+          "protocols": [
+            {
+              "x402": {
+                "version": 2,
+                "scheme": "exact",
+                "networks": [
+                  {
+                    "network": "eip155:8453",
+                    "name": "Base",
+                    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+                    "symbol": "USDC",
+                    "amount": "30000",
+                    "payTo": "0xb8491F953e6860D3b5840b73c60883Ff099ceAfA"
+                  },
+                  {
+                    "network": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+                    "name": "Solana",
+                    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                    "symbol": "USDC",
+                    "amount": "30000",
+                    "payTo": "J8vnmBx4pS1X7UUBTfz1yWBKiw69Dj2yRGRHDaXBRdhR"
+                  },
+                  {
+                    "network": "eip155:5042",
+                    "name": "Arc",
+                    "asset": "0x3600000000000000000000000000000000000000",
+                    "symbol": "USDC",
+                    "amount": "30000",
+                    "payTo": "0xa4751fCAa83c9669cfe507bb6807507729839be3"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "video": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "title": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "url": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "channel": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "handle": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "url": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "subscribers": {
+                              "type": [
+                                "integer",
+                                "null"
+                              ]
+                            }
+                          }
+                        },
+                        "durationSeconds": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "views": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "likes": {
+                          "type": [
+                            "integer",
+                            "null"
+                          ]
+                        },
+                        "publishedAt": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "isLive": {
+                          "type": [
+                            "boolean",
+                            "null"
+                          ]
+                        },
+                        "chapters": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "title": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "start_seconds": {
+                                "type": [
+                                  "integer",
+                                  "null"
+                                ]
+                              },
+                              "thumbnail": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "transcript": {
+                      "type": "object",
+                      "properties": {
+                        "language": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "autoGenerated": {
+                          "type": [
+                            "boolean",
+                            "null"
+                          ]
+                        },
+                        "text": {
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "segments": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "start": {
+                                "type": [
+                                  "number",
+                                  "null"
+                                ]
+                              },
+                              "duration": {
+                                "type": [
+                                  "number",
+                                  "null"
+                                ]
+                              },
+                              "text": {
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "availableLanguages": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "name": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "note": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "checkedAt": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "source": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
+          }
+        },
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "A YouTube link (watch, youtu.be, shorts, embed or live), or the 11-character video id",
+            "example": "https://youtu.be/jNQXAC9IVRw"
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Caption language code, e.g. en, de or pt-BR (optional)"
+          }
+        ]
+      }
+    },
+    "/api/media/transcript": {
+      "get": {
+        "summary": "Transcribe speech from a TikTok, podcast or media link",
+        "description": "Speech to text from a media link: TikTok, X, SoundCloud, Facebook, Dailymotion, podcast episodes, Google Drive or Dropbox share links and direct audio or video files. Returns the text, timestamped segments, language and duration; speaker labels on request. Price $0.10 per started 10 minutes of maxMinutes (default 10, up to 120); longer media is refused unpaid. YouTube links return the captions. Public links only; no speech is a 404, not charged.",
+        "tags": [
+          "transcript",
+          "speech to text",
+          "transcription",
+          "tiktok",
+          "podcast",
+          "video to text",
+          "audio to text",
+          "subtitles"
+        ],
+        "x-payment-info": {
+          "price": {
+            "mode": "fixed",
+            "currency": "USD",
+            "amount": "0.10"
+          },
+          "protocols": [
+            {
+              "x402": {
+                "version": 2,
+                "scheme": "exact",
+                "networks": [
+                  {
+                    "network": "eip155:8453",
+                    "name": "Base",
+                    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+                    "symbol": "USDC",
+                    "amount": "100000",
+                    "payTo": "0xb8491F953e6860D3b5840b73c60883Ff099ceAfA"
+                  },
+                  {
+                    "network": "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+                    "name": "Solana",
+                    "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                    "symbol": "USDC",
+                    "amount": "100000",
+                    "payTo": "J8vnmBx4pS1X7UUBTfz1yWBKiw69Dj2yRGRHDaXBRdhR"
+                  },
+                  {
+                    "network": "eip155:5042",
+                    "name": "Arc",
+                    "asset": "0x3600000000000000000000000000000000000000",
+                    "symbol": "USDC",
+                    "amount": "100000",
+                    "payTo": "0xa4751fCAa83c9669cfe507bb6807507729839be3"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "responses": {
+          "200": {
+            "description": "Successful result (shape shown by the schema and example)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "source": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "platform": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "method": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "language": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "durationSeconds": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "title": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "text": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "segments": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "start": {
+                            "type": [
+                              "number",
+                              "null"
+                            ]
+                          },
+                          "end": {
+                            "type": [
+                              "number",
+                              "null"
+                            ]
+                          },
+                          "text": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "speaker": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        }
+                      }
+                    },
+                    "speakerLabels": {
+                      "type": [
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    "maxMinutes": {
+                      "type": [
+                        "integer",
+                        "null"
+                      ]
+                    },
+                    "model": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "checkedAt": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "source_note": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Payment required (x402). The PAYMENT-REQUIRED header lists one option per network."
+          }
+        },
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Public link to the video, audio file or podcast episode (http or https)",
+            "example": "https://www.tiktok.com/@scout2015/video/6718335390845095173"
+          },
+          {
+            "name": "maxMinutes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Longest media to accept, 1 to 120, default 10. Sets the price: $0.10 per started 10 minutes",
+            "example": "10"
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Spoken language code such as en, tr or pt-BR (optional, detected by default)"
+          },
+          {
+            "name": "speakers",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "1 = label the speakers (optional)"
+          }
+        ]
       }
     },
     "/api/markets": {
