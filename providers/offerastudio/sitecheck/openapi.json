@@ -118,7 +118,7 @@
   "/api/transcribe": {
    "post": {
     "summary": "Transcribe audio to text with timestamps",
-    "description": "Speech-to-text with Whisper large-v3-turbo: send an https audio URL (or base64) up to 25 MB, get the transcript, language and timestamped segments.",
+    "description": "Speech-to-text with Whisper large-v3-turbo: send an https audio URL (or base64) up to 10 minutes and 25 MB, get the transcript, language and timestamped segments.",
     "tags": [
      "speech-to-text",
      "transcription",
@@ -412,7 +412,7 @@
   "/api/chat": {
    "post": {
     "summary": "Generate a chat completion with Llama 3.3 70B",
-    "description": "LLM chat completion with Llama 3.3 70B (fast): send messages or a prompt, up to 2048 output tokens.",
+    "description": "LLM chat completion with Llama 3.3 70B (fast): send messages or a prompt, up to 1,024 output tokens.",
     "tags": [
      "llm",
      "chat",
@@ -493,7 +493,7 @@
          },
          "max_tokens": {
           "type": "integer",
-          "description": "Up to 2048 (default 1024)"
+          "description": "Up to 1024 (default 1024)"
          },
          "temperature": {
           "type": "number",
