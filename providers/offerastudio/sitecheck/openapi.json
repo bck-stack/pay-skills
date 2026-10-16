@@ -13354,7 +13354,7 @@
   "/api/media/transcript": {
    "get": {
     "summary": "Transcribe speech from a TikTok, podcast or media link",
-    "description": "Speech to text from a media link: TikTok, X, SoundCloud, Facebook, Dailymotion, podcast episodes, Google Drive or Dropbox share links and direct audio or video files. Returns the text, timestamped segments, language and duration; speaker labels on request. Price $0.0009 per minute of maxMinutes (default 5 = $0.0045, at least $0.002, up to 120); with speakers=1 $0.01 per minute. Longer media is refused unpaid. YouTube links return the captions. Public links only; no speech is a 404, not charged.",
+    "description": "Speech to text from a media link: TikTok, X, SoundCloud, Facebook, Dailymotion, podcasts, Drive or Dropbox links, direct audio or video files. Text, timestamped segments, language, duration; speaker labels on request. Price from maxMinutes (default 5, up to 120): direct file up to 25 MB $0.001 + $0.0006/min, other links $0.002 + $0.0009/min, speakers=1 $0.01/min. Longer media is refused unpaid. YouTube returns captions. No speech is a 404, not charged.",
     "tags": [
      "transcript",
      "speech to text",
@@ -13369,7 +13369,7 @@
      "price": {
       "mode": "fixed",
       "currency": "USD",
-      "amount": "0.0045"
+      "amount": "0.0065"
      },
      "protocols": [
       {
@@ -13382,7 +13382,7 @@
           "name": "Base",
           "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
           "symbol": "USDC",
-          "amount": "4500",
+          "amount": "6500",
           "payTo": "0xb8491F953e6860D3b5840b73c60883Ff099ceAfA"
          },
          {
@@ -13390,7 +13390,7 @@
           "name": "Solana",
           "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
           "symbol": "USDC",
-          "amount": "4500",
+          "amount": "6500",
           "payTo": "J8vnmBx4pS1X7UUBTfz1yWBKiw69Dj2yRGRHDaXBRdhR"
          },
          {
@@ -13398,7 +13398,7 @@
           "name": "Arc",
           "asset": "0x3600000000000000000000000000000000000000",
           "symbol": "USDC",
-          "amount": "4500",
+          "amount": "6500",
           "payTo": "0xa4751fCAa83c9669cfe507bb6807507729839be3"
          }
         ]
@@ -13439,7 +13439,7 @@
       "schema": {
        "type": "string"
       },
-      "description": "Longest media to accept, 1 to 120, default 5. Sets the price: $0.0009 per minute (at least $0.002)",
+      "description": "Longest media to accept, 1 to 120, default 5. Sets the price: a direct audio or video file up to 25 MB $0.001 + $0.0006 per minute, other links $0.002 + $0.0009 per minute",
       "example": "5"
      },
      {
