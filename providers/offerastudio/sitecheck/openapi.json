@@ -213,20 +213,21 @@
   },
   "/api/tts": {
    "post": {
-    "summary": "Convert English text to speech (MP3)",
-    "description": "English text-to-speech with Deepgram Aura-2: natural voices, up to 1000 chars per call. Returns base64 MP3.",
+    "summary": "Convert text to speech in 6 languages",
+    "description": "Text-to-speech as base64 audio. Default: MeloTTS WAV, up to 2,000 chars, in English, Spanish, French, Chinese, Japanese or Korean, $0.002. quality \"high\": Deepgram Aura-2 natural English voices as MP3, up to 500 chars, $0.02.",
     "tags": [
      "text-to-speech",
      "tts",
      "voice",
      "audio",
-     "speech"
+     "speech",
+     "multilingual"
     ],
     "x-payment-info": {
      "price": {
       "mode": "fixed",
       "currency": "USD",
-      "amount": "0.02"
+      "amount": "0.002"
      },
      "protocols": [
       {
@@ -239,7 +240,7 @@
           "name": "Base",
           "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
           "symbol": "USDC",
-          "amount": "20000",
+          "amount": "2000",
           "payTo": "0xb8491F953e6860D3b5840b73c60883Ff099ceAfA"
          },
          {
@@ -247,7 +248,7 @@
           "name": "Solana",
           "asset": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
           "symbol": "USDC",
-          "amount": "20000",
+          "amount": "2000",
           "payTo": "J8vnmBx4pS1X7UUBTfz1yWBKiw69Dj2yRGRHDaXBRdhR"
          },
          {
@@ -255,7 +256,7 @@
           "name": "Arc",
           "asset": "0x3600000000000000000000000000000000000000",
           "symbol": "USDC",
-          "amount": "20000",
+          "amount": "2000",
           "payTo": "0xa4751fCAa83c9669cfe507bb6807507729839be3"
          }
         ]
@@ -287,11 +288,19 @@
         "properties": {
          "text": {
           "type": "string",
-          "description": "Up to 1000 chars"
+          "description": "Up to 2000 chars (500 with quality high)"
+         },
+         "lang": {
+          "type": "string",
+          "description": "en, es, fr, zh, ja or ko (default en)"
+         },
+         "quality": {
+          "type": "string",
+          "description": "standard (default, $0.002) or high (Aura-2 English, $0.02)"
          },
          "voice": {
           "type": "string",
-          "description": "luna, asteria, athena, helena, hera, aurora, orion, apollo, arcas, atlas, hermes, zeus, draco, odysseus"
+          "description": "quality high only: luna, asteria, athena, helena, hera, aurora, orion, apollo, arcas, atlas, hermes, zeus, draco, odysseus"
          }
         },
         "required": [
@@ -300,7 +309,7 @@
        },
        "example": {
         "text": "Hello from your agent.",
-        "voice": "luna"
+        "lang": "en"
        }
       }
      }
@@ -1151,7 +1160,7 @@
   "/api/violations": {
    "get": {
     "summary": "Search OSHA and EPA enforcement cases by company",
-    "description": "US workplace and environmental enforcement cases by company, state and date: OSHA inspections with penalties (US Department of Labor API) and EPA enforcement cases (EPA ECHO), each with the official record link. Filters: company, state, since, minPenalty, source. OSHA is included only when the deployment has a DOL key; the answer says so otherwise. Public records matched by name, not a finding of guilt.",
+    "description": "US workplace and environmental enforcement cases by company, state and date: OSHA inspections with penalties (US Department of Labor API) and EPA enforcement cases (EPA ECHO), each with the official record link. Filters: company, state, since, minPenalty, source. Public records matched by name, not a finding of guilt.",
     "tags": [
      "osha",
      "epa",
@@ -7130,7 +7139,7 @@
   "/api/github/user": {
    "get": {
     "summary": "Get a GitHub user's profile and top repositories",
-    "description": "A GitHub user's public profile (name, company, location, blog, bio, followers, public repos, creation date) and their five most-starred repositories that are not forks. Needs the GITHUB_TOKEN secret on the deployment; without it the call answers 503 and is not charged.",
+    "description": "A GitHub user's public profile (name, company, location, blog, bio, followers, public repos, creation date) and their five most-starred repositories that are not forks.",
     "tags": [
      "github",
      "user",
@@ -8949,7 +8958,7 @@
   "/api/company/registry": {
    "get": {
     "summary": "Search companies in Norway, Finland, Czechia and Poland",
-    "description": "Companies from the official registers of Norway, Finland, the Czech Republic and Poland. Search by name (Norway, Finland, Czech Republic) or look up one company by its number: Norway 9 digits, Finland Y-tunnus, Czech IČO, Poland KRS (Poland by number only). Answers give name, id, status, legal form, address, incorporation date and industry; Norway lookups by number also list managers. France is not included (see the PR).",
+    "description": "Companies from the official registers of Norway, Finland, the Czech Republic and Poland. Search by name (Norway, Finland, Czech Republic) or look up one company by its number: Norway 9 digits, Finland Y-tunnus, Czech IČO, Poland KRS (Poland by number only). Answers give name, id, status, legal form, address, incorporation date and industry; Norway lookups by number also list managers. France: use /api/company/fr.",
     "tags": [
      "company",
      "registry",
@@ -11208,7 +11217,7 @@
   "/api/github/releases": {
    "get": {
     "summary": "List a GitHub repository's latest releases",
-    "description": "The latest releases of a GitHub repository: tag, name, date, pre-release flag, the first 1,500 characters of the notes, and the number of assets. Needs the GITHUB_TOKEN secret on the deployment; without it the call answers 503 and is not charged.",
+    "description": "The latest releases of a GitHub repository: tag, name, date, pre-release flag, the first 1,500 characters of the notes, and the number of assets.",
     "tags": [
      "github",
      "releases",
@@ -11301,7 +11310,7 @@
   "/api/github/issues": {
    "get": {
     "summary": "Search a GitHub repository's issues or pull requests",
-    "description": "Issues or pull requests of a GitHub repository, searched by words and state (open, closed or all), newest updated first: number, title, state, labels, author, comments, dates and link. Needs the GITHUB_TOKEN secret; without it the call answers 503 and is not charged.",
+    "description": "Issues or pull requests of a GitHub repository, searched by words and state (open, closed or all), newest updated first: number, title, state, labels, author, comments, dates and link.",
     "tags": [
      "github",
      "issues",
@@ -12865,7 +12874,7 @@
   "/api/producthunt": {
    "get": {
     "summary": "Search Product Hunt launches by day, topic or text",
-    "description": "Product Hunt launches: today's top launches, the newest in one topic (for example artificial-intelligence), or a text search over the newest launches. Each has name, tagline, votes, comments, launch time, links and topics. Today is the top 20 by ranking kept when posted on today's UTC date; search covers the newest 60 launches only. Needs a Product Hunt developer token on the deployment; without one the answer is a 503, not charged.",
+    "description": "Product Hunt launches: today's top launches, the newest in one topic (for example artificial-intelligence), or a text search over the newest launches. Each has name, tagline, votes, comments, launch time, links and topics. Today is the top 20 by ranking kept when posted on today's UTC date; search covers the newest 60 launches only.",
     "tags": [
      "product hunt",
      "launches",
@@ -14112,7 +14121,7 @@
   "/api/translate/subtitles": {
    "post": {
     "summary": "Convert an SRT or WebVTT file to another language",
-    "description": "Translate an SRT or WebVTT subtitle file into another language. Only the cue text is translated; every cue number, timing line and header is copied exactly, and the output is checked to parse back to the same cues and timings, or it is refused unpaid. Body { subtitles, to, from }: up to 50 KB. Workers AI (Llama 3.1 8B) translates the text, so check it before publishing. Not live-checked: the owner tests it on the Worker after the merge.",
+    "description": "Translate an SRT or WebVTT subtitle file into another language. Only the cue text is translated; every cue number, timing line and header is copied exactly, and the output is checked to parse back to the same cues and timings, or it is refused unpaid. Body { subtitles, to, from }: up to 50 KB. Workers AI (Llama 3.1 8B) translates the text, so check it before publishing.",
     "tags": [
      "subtitles",
      "srt",
@@ -14215,7 +14224,7 @@
   "/api/text/paraphrase": {
    "post": {
     "summary": "Generate a rewrite of a text in another tone",
-    "description": "Rewrite a text in a chosen tone (neutral, formal, casual, simple, persuasive) and length (shorter, same, longer), keeping its meaning and language. Up to 3 variants. Workers AI (Llama 3.3 70B) writes the rewrite; only the rewritten text is returned. Up to 8,000 characters. Not live-checked: the owner tests it on the Worker after the merge. The model can change nuance, so read the result.",
+    "description": "Rewrite a text in a chosen tone (neutral, formal, casual, simple, persuasive) and length (shorter, same, longer), keeping its meaning and language. Up to 3 variants. Workers AI (Llama 3.3 70B) writes the rewrite; only the rewritten text is returned. Up to 8,000 characters. The model can change nuance, so read the result.",
     "tags": [
      "paraphrase",
      "rewrite",
@@ -17111,7 +17120,7 @@
   "/api/invoice/extract": {
    "post": {
     "summary": "Extract invoice fields and check the totals",
-    "description": "Structured data from an invoice: seller and buyer (name, address, tax ID), invoice number, dates, currency, line items, subtotal, tax, total and payment details, with null for anything absent. The arithmetic is checked (line sum against subtotal, subtotal plus tax against total) and mismatches are returned. PDF with a text layer by URL or base64, or plain text. Not live-checked: Workers AI is checked by the owner after the merge.",
+    "description": "Structured data from an invoice: seller and buyer (name, address, tax ID), invoice number, dates, currency, line items, subtotal, tax, total and payment details, with null for anything absent. The arithmetic is checked (line sum against subtotal, subtotal plus tax against total) and mismatches are returned. PDF with a text layer by URL or base64, or plain text.",
     "tags": [
      "invoice extraction",
      "invoice data",
@@ -17210,7 +17219,7 @@
   "/api/resume/parse": {
    "post": {
     "summary": "Extract CV fields: experience, education and skills",
-    "description": "Structured data from a CV or resume: name, contact details, location, links, summary, skills, languages, certifications, work experience and education, with null or empty lists where the text has nothing. Plain text, or a PDF with a text layer by URL or base64. Dates are kept as written. Not live-checked: Workers AI is checked by the owner after the merge.",
+    "description": "Structured data from a CV or resume: name, contact details, location, links, summary, skills, languages, certifications, work experience and education, with null or empty lists where the text has nothing. Plain text, or a PDF with a text layer by URL or base64. Dates are kept as written.",
     "tags": [
      "resume parser",
      "cv parser",
@@ -17309,7 +17318,7 @@
   "/api/address/parse": {
    "get": {
     "summary": "Parse a postal address into parts and check the postcode",
-    "description": "Splits a free-text postal address into house number, street, unit, postcode, city, district, region and country, with a normalised one-line form. The postcode is checked against the rule of the country (for 18 countries); a mismatch is left out and says so. Workers AI does the split, so check the parts. geocode=1 adds coordinates from OpenStreetMap Nominatim. Not live-checked: the owner checks the model after the merge.",
+    "description": "Splits a free-text postal address into house number, street, unit, postcode, city, district, region and country, with a normalised one-line form. The postcode is checked against the rule of the country (for 18 countries); a mismatch is left out and says so. Workers AI does the split, so check the parts. geocode=1 adds coordinates from OpenStreetMap Nominatim.",
     "tags": [
      "address parser",
      "postal address",
@@ -18383,7 +18392,7 @@
   "/api/crypto/address-risk": {
    "get": {
     "summary": "Check crypto addresses against OFAC digital-currency sanctions",
-    "description": "Screens up to 20 cryptocurrency addresses (EVM, Bitcoin, Solana, Tron) against the US Treasury OFAC Specially Designated Nationals (SDN) digital currency address list. Reports sanction status, list name, SDN program, and source link. Never declares an address clean: reports 'not on the checked lists'. Information only, not financial advice.",
+    "description": "Screens up to 20 crypto addresses (EVM chains, Bitcoin, Solana, Tron, Litecoin, Monero, XRP, Zcash and more; 18 currencies) against the US Treasury OFAC Specially Designated Nationals (SDN) digital currency address list. Reports sanction status, list name, SDN program, and source link. Never declares an address clean: reports 'not on the checked lists'. Information only, not financial advice.",
     "tags": [
      "crypto",
      "sanctions",
@@ -18454,8 +18463,8 @@
       "schema": {
        "type": "string"
       },
-      "description": "Array of up to 20 cryptocurrency addresses to screen",
-      "example": "[\"0x0330070FD38Ec3bB94F58FA55D40368271E9e54A\",\"0x0000000000000000000000000000000000000000\"]"
+      "description": "Up to 20 addresses, comma-separated (a JSON array also works in a POST-style client)",
+      "example": "0x0330070FD38Ec3bB94F58FA55D40368271E9e54A,0x0000000000000000000000000000000000000000"
      }
     ]
    }
@@ -19679,7 +19688,7 @@
   "/api/screen/debarment": {
    "get": {
     "summary": "Check names against debarment and exclusion lists",
-    "description": "Searches the World Bank Listing of Ineligible Firms and Individuals for debarred parties. When env.SAM_API_KEY is set, also searches US SAM.gov exclusions. Each hit: list, name, country, grounds, from/to dates, source URL. If a list is unreachable, returns listsUnavailable and 503 when none are checked.",
+    "description": "Searches the World Bank Listing of Ineligible Firms and Individuals for debarred and ineligible firms and individuals. Each hit: list, name, country, grounds, from/to dates, source URL. If a list is unreachable, returns listsUnavailable and 503 when none are checked.",
     "tags": [
      "compliance",
      "debarment",
@@ -19778,7 +19787,7 @@
   "/api/screen/export-control": {
    "get": {
     "summary": "Check names against the US Consolidated Screening List",
-    "description": "Searches the US trade.gov Consolidated Screening List (Entity List, SDN, Denied Persons, Unverified, ITAR Debarred, etc.) by name and optional country. Each hit includes list name, aliases, addresses, programs, federal register notice, and match score. Requires env.TRADE_GOV_API_KEY. Without the key, returns 503 not charged.",
+    "description": "Searches the US trade.gov Consolidated Screening List (Entity List, SDN, Denied Persons, Unverified, ITAR Debarred, etc.) by name and optional country. Each hit includes list name, aliases, addresses, programs, federal register notice, and match score.",
     "tags": [
      "compliance",
      "sanctions",
@@ -20285,7 +20294,7 @@
   "/api/domain/typosquat": {
    "get": {
     "summary": "List lookalike domains of a brand and their DNS records",
-    "description": "Generates lookalike domains of a brand (omission, transposition, repetition, bit-flip, homoglyph, vowel swap, hyphenation, TLD swap; technique list after dnstwist), checks up to 40 of them in DNS (A records), and reads MX records for those that resolve. Resolving in DNS is not proof of registration or abuse. Max 40 lookups per call.",
+    "description": "Generates lookalike domains of a brand (omission, transposition, repetition, bit-flip, homoglyph, vowel swap, hyphenation, TLD swap; technique list after dnstwist), checks up to 30 of them in DNS (A records), and reads MX records for up to 8 that resolve. Resolving in DNS is not proof of registration or abuse.",
     "tags": [
      "typosquat",
      "phishing",
@@ -20374,7 +20383,7 @@
   "/api/github/search": {
    "get": {
     "summary": "Search GitHub repositories, issues, code or users",
-    "description": "GitHub search with its own query syntax (e.g. 'sqlite language:rust stars:>100'). Repositories: name, owner, stars, forks, language, topics, licence, pushed date. Issues: title, state, labels, comments, URL. Code needs the optional GITHUB_TOKEN; search is rate limited by GitHub (about 10 requests a minute unauthenticated). Limit max 30.",
+    "description": "GitHub search with its own query syntax (e.g. 'sqlite language:rust stars:>100'). Repositories: name, owner, stars, forks, language, topics, licence, pushed date. Issues: title, state, labels, comments, URL. Code: path, repository and link. GitHub limits search to about 30 requests a minute; a busy minute is a 503, not charged. Limit max 30.",
     "tags": [
      "github",
      "search",
