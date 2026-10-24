@@ -9,7 +9,7 @@ openapi:
   path: openapi.json
 ---
 
-SiteCheck is a live pay-per-call API for AI agents. Every call is paid on its own with x402 in USDC on Solana, Base or Arc: no account, no API key. A payment settles only when the call succeeds, so a failed call is never charged. The same tools are served as a remote MCP server at `/mcp` (x402 MCP transport; official MCP Registry: `io.github.bck-stack/sitecheck`).
+SiteCheck is a live pay-per-call API for AI agents. Every call is paid on its own with x402 in USDC on Solana, Base, Arc, Polygon, Arbitrum, Monad, World Chain, Optimism, Avalanche, Celo or Stellar, or in RLUSD/XRP on the XRP Ledger: no account, no API key. A payment settles only when the call succeeds, so a failed call is never charged. The same tools are served as a remote MCP server at `/mcp` (x402 MCP transport; official MCP Registry: `io.github.bck-stack/sitecheck`).
 
 Web and documents
 - `GET /api/read?url=` ($0.002): one web page as clean Markdown or text (main content only) with title, description, author, date, language and canonical URL; robots.txt respected.
